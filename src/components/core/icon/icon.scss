@@ -1,0 +1,23 @@
+.icon-with-quantity {
+	display: flex;
+	flex-direction: column;
+	&__values {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		background-color: #eb5757;
+		margin-left: 1.4rem;
+		margin-top: -0.16rem;
+		width: 1rem;
+		align-items: center;
+		font-family: Oswald;
+		text-align: center;
+		color: var(--White, #fff);
+		font-size: 10px;
+		font-weight: 500;
+		line-height: 18px;
+		letter-spacing: 0.2px;
+		flex-shrink: 0;
+	}
+}

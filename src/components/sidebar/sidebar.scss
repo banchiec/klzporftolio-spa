@@ -1,0 +1,60 @@
+.klz-header-modal {
+	z-index: 100;
+	&__menu-modal {
+		position: absolute;
+		width: 20.5rem;
+		right: 0;
+		top: 0;
+	}
+	&__menu-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100vh;
+		background-color: #0a0a0a;
+		border-radius: 4rem 0 00;
+	}
+	&__modal__header {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		padding: 2.8rem;
+		&__icon {
+			cursor: pointer;
+		}
+	}
+	&__modal__menu {
+		font-family: 'Shadows Into Light', cursive;
+		font-weight: 400;
+		font-style: normal;
+		padding: 2.8rem 2.8rem 2.8rem 0rem;
+		margin-top: 3.7rem;
+		ul {
+			text-align: end;
+			margin-left: 0;
+			padding: 0;
+		}
+		li {
+			list-style: none;
+			color: white;
+			font-size: 3.1rem;
+			line-height: 110%;
+			letter-spacing: 0.31rem;
+			padding: 1.5rem 0;
+		}
+	}
+	&__footer {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		&__logo {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		img {
+			padding-bottom: 9.6rem;
+		}
+	}
+}

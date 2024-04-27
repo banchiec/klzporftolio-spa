@@ -1,0 +1,15 @@
+.banner-carousel {
+	width: 100vw;
+	height: 100vh;
+	flex-shrink: 0;
+	border: 1px solid green;
+	background-image: linear-gradient(
+			148deg,
+			rgba(255, 255, 255, 0.6) 53.22%,
+			rgba(255, 255, 255, 0) 109.02%
+		),
+		url('../../assets/images/bannerImage.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: initial;
+}
