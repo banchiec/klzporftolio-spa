@@ -1,8 +1,9 @@
+import CardAboutMe from "../../components/cards/card-about-me"
 import { AboutMeTypes } from "./types"
 
 const AboutMePage = (props: AboutMeTypes) => {
 	return(
-		<div>AboutMe</div>
+		<><CardAboutMe/></>
 	)
 }
 export default AboutMePage

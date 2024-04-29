@@ -1,0 +1,61 @@
+.klz-about-me {
+	background: var(--Neutral-Dark, #0a0a0a);
+	height: 100vh;
+	&-container {
+		display: flex;
+		background: var(--Neutral-Dark, #0a0a0a);
+		flex-direction: column;
+		// padding: 52.34px 103.78px 0px 103.78px;
+	}
+
+	&-header {
+		padding: 0.2rem 3.5rem 2.2rem 3.5rem;
+		h1 {
+			color: var(--Accent-Blue, #42fbff);
+			text-align: center;
+			-webkit-text-stroke-width: 0.4444444477558136;
+			-webkit-text-stroke-color: var(--Accent-Blue, #42fbff);
+			font-family: 'Shadows Into Light';
+			font-size: 56px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 110%; /* 61.6px */
+			letter-spacing: 5.6px;
+			text-align: start;
+		}
+		&__motto {
+			color: #fff;
+			font-family: 'Nunito Sans';
+			font-size: 17px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			letter-spacing: 0.85px;
+			text-align: start;
+		}
+	}
+	&-main {
+		img {
+			width: 100%;
+			flex-shrink: 0;
+			object-fit: contain;
+		}
+		&__description {
+			padding: 4rem 2.9rem;
+			p {
+				color: #fff;
+				text-align: justify;
+				font-family: 'Nunito Sans';
+				font-size: 13px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 136.114%; /* 17.695px */
+				padding-bottom: 3rem;
+			}
+		}
+	}
+}
+
+.klz-klaus-name {
+	color: #ff69da;
+}

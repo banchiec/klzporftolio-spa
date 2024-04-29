@@ -4,9 +4,9 @@ import { useState } from "react"
 import Sidebar from "../sidebar"
 import logo from "../../assets/images/logo.png"
 import contactme from "../../assets/images/contactme.png"
-import "./header.scss"
 import ContactMeModal from "../contact-me-modal"
 import { menuHeaderDesktop, menuHeaderSidebar } from "../../config/menus"
+import "./header.scss"
 
 
 const Header = (props: HeaderType) => {

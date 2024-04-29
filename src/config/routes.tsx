@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import Layout from "../components/layout";
 // import NotFoundPage from "pages/not-found-page/NotFoundPage";
 import { Home } from '../page/home';
-import AboutMePage from '../page/about-me';
+import AboutMePage from '../page/about-me-page';
 
 
 export const mainRoutes = {
