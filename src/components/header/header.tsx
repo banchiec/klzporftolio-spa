@@ -5,6 +5,7 @@ import Sidebar from "../sidebar"
 import logo from "../../assets/images/logo.png"
 import contactme from "../../assets/images/contactme.png"
 import "./header.scss"
+import ContactMeModal from "../contact-me-modal"
 
 const menuItems = [
 	{
@@ -46,9 +47,12 @@ const menuItemsDesktop = [
 
 const Header = (props: HeaderType) => {
 	const [visible, setVisible] = useState(false)
+	const [visibleModal, setVisibleModal] = useState(false)
+
 	const handleClick = () => {
 		setVisible(!visible)
 	}
+
 	return (
 		<>
 			<div className="klz-header">
@@ -63,7 +67,7 @@ const Header = (props: HeaderType) => {
 							))}
 						</ul>
 						<div className="klz-header__desktop__button-contactme">
-							<button> <img src={contactme} alt="contact me"/>Contact Me</button>
+							<button onClick={() => setVisibleModal(true)}> <img src={contactme} alt="contact me"/>Contact Me</button>
 						</div>
 					</div>
 				</div>
@@ -76,6 +80,9 @@ const Header = (props: HeaderType) => {
 					</div>
 				</div>
 			</div>
+			{visibleModal && (
+				<ContactMeModal setVisible={setVisibleModal}/>
+			)}
 			{visible && (
 				<Sidebar data={menuItems} setVisible={setVisible} />
 			)}
