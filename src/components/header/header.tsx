@@ -6,44 +6,8 @@ import logo from "../../assets/images/logo.png"
 import contactme from "../../assets/images/contactme.png"
 import "./header.scss"
 import ContactMeModal from "../contact-me-modal"
+import { menuHeaderDesktop, menuHeaderSidebar } from "../../config/menus"
 
-const menuItems = [
-	{
-		label: "Home",
-		url: "/",
-	},
-	{
-		label: "Portfolio",
-		url: "/portfolio",
-	},
-	{
-		label: "About me",
-		url: "/About-me",
-	},
-	{
-		label: "Shop",
-		url: "/shop",
-	},
-	{
-		label: "Contact me",
-		url: "/contact-me",
-	},
-]
-
-const menuItemsDesktop = [
-	{
-		label: "Portfolio",
-		url: "/portfolio",
-	},
-	{
-		label: "Shop",
-		url: "/shop",
-	},
-	{
-		label: "About Me",
-		url: "/About-me",
-	},
-]
 
 const Header = (props: HeaderType) => {
 	const [visible, setVisible] = useState(false)
@@ -62,7 +26,7 @@ const Header = (props: HeaderType) => {
 					</div>
 					<div className="klz-header__desktop__menu">
 						<ul>
-							{menuItemsDesktop.map((item)=> (
+							{menuHeaderDesktop.map((item)=> (
 								<li key={item.label}>{item.label}</li>
 							))}
 						</ul>
@@ -84,7 +48,7 @@ const Header = (props: HeaderType) => {
 				<ContactMeModal setVisible={setVisibleModal}/>
 			)}
 			{visible && (
-				<Sidebar data={menuItems} setVisible={setVisible} />
+				<Sidebar data={menuHeaderSidebar} setVisible={setVisible} />
 			)}
 		</>
 	)
