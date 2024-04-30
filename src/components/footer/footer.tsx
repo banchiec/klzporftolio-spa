@@ -17,10 +17,10 @@ const Footer = ( props: FooterType) => {
 			<div className="klz-footer-container">
 				<div className="klz-footer__social-media">
 					<div className="klz-footer__social-media__icon">
-						<img src={instagram} alt="Instagram"/>
+						<img src={pinterest} alt="Pinterest"/>
 					</div>
 					<div className="klz-footer__social-media__icon">
-						<img src={pinterest} alt="Pinterest"/>
+						<img src={instagram} alt="Instagram"/>
 					</div>
 					<div className="klz-footer__social-media__icon">
 						<img src={linkedIn} alt="LinkedIn"/>
