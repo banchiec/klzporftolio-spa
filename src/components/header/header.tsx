@@ -7,6 +7,7 @@ import contactme from "../../assets/images/contactme.png"
 import ContactMeModal from "../contact-me-modal"
 import { menuHeaderDesktop, menuHeaderSidebar } from "../../config/menus"
 import "./header.scss"
+import { Link } from "react-router-dom"
 
 
 const Header = (props: HeaderType) => {
@@ -27,7 +28,9 @@ const Header = (props: HeaderType) => {
 					<div className="klz-header__desktop__menu">
 						<ul>
 							{menuHeaderDesktop.map((item)=> (
-								<li key={item.label}>{item.label}</li>
+								<Link to={item.url} key={item.label}>
+									<li key={item.label}>{item.label}</li>
+								</Link>
 							))}
 						</ul>
 						<div className="klz-header__desktop__button-contactme">

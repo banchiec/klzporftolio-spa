@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 // import NotFoundPage from "pages/not-found-page/NotFoundPage";
 import { Home } from '../page/home';
 import AboutMePage from '../page/about-me-page';
+import PortfolioPage from '../page/portfolio-page';
 
 
 export const mainRoutes = {
@@ -12,6 +13,8 @@ export const mainRoutes = {
     {path: '*', element: <Navigate to='/404' />},
     {path: '/', element: <Home/>},
     {path: '/about-me', element: <AboutMePage/>},
+    {path: '/portfolio', element: <PortfolioPage/>},
+    {path: '/shop', element: <AboutMePage/>},
     // {path: '404', element: <NotFoundPage/>},
     // {path: 'account', element: <Navigate to='/account/list' />},
   ],

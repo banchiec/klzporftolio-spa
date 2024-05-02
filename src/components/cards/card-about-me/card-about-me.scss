@@ -1,11 +1,10 @@
-.klz-about-me {
+.klz-about-me-card {
+	display: flex;
 	background: var(--Neutral-Dark, #0a0a0a);
-	height: 100vh;
 	&-container {
 		display: flex;
 		background: var(--Neutral-Dark, #0a0a0a);
 		flex-direction: column;
-		// padding: 52.34px 103.78px 0px 103.78px;
 	}
 
 	&-header {
@@ -55,6 +54,7 @@
 		}
 	}
 	@media (min-width: 860px) {
+		height: 100vh;
 		&-header {
 			padding: 1.9rem 10.9rem;
 		}
