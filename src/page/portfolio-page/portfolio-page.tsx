@@ -1,3 +1,6 @@
 export const PortfolioPage = () => {
-	return(<div>Portfolio-page</div>)
+	return(
+		<div className="klz-portfolio-page">
+		</div>
+	)
 }
