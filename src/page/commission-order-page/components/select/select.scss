@@ -1,0 +1,23 @@
+.klz-select-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	span {
+		color: #fff;
+		font-family: 'Nunito Sans';
+		font-size: 14.153px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+	}
+	&__custom {
+		padding: 0.6rem 1rem;
+		width: 100%;
+		border-radius: 5.661px;
+		background-color: #000;
+		border: 0.708px solid #fff;
+		svg {
+			background-color: #fff;
+		}
+	}
+}
