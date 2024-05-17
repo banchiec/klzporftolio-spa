@@ -1,6 +1,8 @@
-import "./commissions-order-page.scss"
 import lettering from "../../assets/images/lettering.png"
 import Select from "./components/select"
+import "./commissions-order-page.scss"
+import FormCommission from "./components/form-commission"
+
 
 export const CommissionsOrderPage = () => {
 	return(
@@ -11,23 +13,22 @@ export const CommissionsOrderPage = () => {
 						<img src={lettering} alt="image_product"/>
 					</div>
 					<div className="klz-commissions-order__details__description">
-						<p>I create unique, handmade retro-futuristic logos, typography, and artworks in a cartoon style. Based on your description, I bring your ideas to life. Feel free to ask questions or place an order if you think your concept aligns with my style!</p>
+						<p>I create unique, handmade retro-futuristic logos, typography, and <br/>artworks in a cartoon style. Based on your description, I bring your <br/>ideas to life. Feel free to ask questions or place an order if you think <br/>your concept aligns with my style!</p>
 					</div>
 				</div>
-				<div className="klz-commissions-order__form-header">
-					<div className="klz-commissions-order__form-header__header">
+				<div>
+
+				<div className="klz-commissions-order__form">
+					<div className="klz-commissions-order__form__header">
 						<h2>LOGO/LETTERING</h2>
-						<p>50€</p>
+						
+						<p><span>from</span>50€</p>
 					</div>
-					<div className="klz-commissions-order__form-header__body">
+					<div className="klz-commissions-order__form__body">
 						<p>I create unique, handmade retro-futuristic logos, typography, and artworks in a cartoon style. Based on your description, I bring your ideas to life. Feel free to ask questions or place an order if you think your concept aligns with my style!</p>
 					</div>
+					<FormCommission/>
 				</div>
-				<div className="klz-commissions-order__form-body">
-					<Select/>
-					<Select/>
-					<Select/>
-					<Select/>
 				</div>
 			</div>
 		</div>
