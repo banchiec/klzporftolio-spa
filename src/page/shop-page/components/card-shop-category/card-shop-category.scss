@@ -1,0 +1,51 @@
+.klz-card-shop-category {
+	&-front {
+		margin: 2rem 0;
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+	}
+	&-back {
+		.klz-card-shop-category__title {
+			h4 {
+				color: #fff;
+				text-align: center;
+				-webkit-text-stroke-width: 0.4444444477558136;
+				-webkit-text-stroke-color: #fff;
+				font-family: 'Shadows Into Light Two';
+				font-size: 20.444px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				letter-spacing: 2.044px;
+			}
+		}
+		.klz-card-shop-category__description {
+			padding: 2.5rem 3rem;
+			p {
+				color: #fff;
+				text-align: justify;
+				font-family: 'Nunito Sans';
+				font-size: 17.778px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+			}
+		}
+	}
+
+	@media (min-width: 860px) {
+		&-front {
+			img {
+				width: 50.6rem;
+				height: 50.6rem;
+				object-fit: cover;
+			}
+		}
+		&-back {
+			display: none;
+		}
+	}
+}

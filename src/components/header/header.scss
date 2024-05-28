@@ -29,7 +29,7 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
-			padding: 2.2rem 7.416rem;
+			padding: 1.243rem 10.916rem;
 			&__menu {
 				display: flex;
 				flex-direction: row;
@@ -51,23 +51,23 @@
 				}
 			}
 			&__button-contactme {
-				padding-left: 1.5rem;
 				button {
 					cursor: pointer;
 					font-family: 'Shadows Into Light Two', cursive;
+					display: flex;
 					font-size: 2.518rem;
+					padding: 0 1.5rem;
 					color: #0a0a0a;
 					font-style: normal;
 					font-weight: 600;
 					line-height: normal;
 					letter-spacing: 0.1109rem;
-					display: flex;
 					align-items: center;
 					background-color: #ff69da;
 					border-radius: 7.1px;
 					background: var(--Primary-Pink, #ff69da);
 					img {
-						padding: 0 1rem;
+						padding: 0 1rem 0 0;
 					}
 				}
 			}

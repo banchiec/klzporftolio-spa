@@ -4,51 +4,20 @@ import { useState } from "react"
 import Sidebar from "../sidebar"
 import logo from "../../assets/images/logo.png"
 import contactme from "../../assets/images/contactme.png"
+import ContactMeModal from "../contact-me-modal"
+import { menuHeaderDesktop, menuHeaderSidebar } from "../../config/menus"
 import "./header.scss"
+import { Link } from "react-router-dom"
 
-const menuItems = [
-	{
-		label: "Home",
-		url: "/",
-	},
-	{
-		label: "Portfolio",
-		url: "/portfolio",
-	},
-	{
-		label: "About me",
-		url: "/About-me",
-	},
-	{
-		label: "Shop",
-		url: "/shop",
-	},
-	{
-		label: "Contact me",
-		url: "/contact-me",
-	},
-]
-
-const menuItemsDesktop = [
-	{
-		label: "Portfolio",
-		url: "/portfolio",
-	},
-	{
-		label: "Shop",
-		url: "/shop",
-	},
-	{
-		label: "About Me",
-		url: "/About-me",
-	},
-]
 
 const Header = (props: HeaderType) => {
 	const [visible, setVisible] = useState(false)
+	const [visibleModal, setVisibleModal] = useState(false)
+
 	const handleClick = () => {
 		setVisible(!visible)
 	}
+
 	return (
 		<>
 			<div className="klz-header">
@@ -58,12 +27,14 @@ const Header = (props: HeaderType) => {
 					</div>
 					<div className="klz-header__desktop__menu">
 						<ul>
-							{menuItemsDesktop.map((item)=> (
-								<li key={item.label}>{item.label}</li>
+							{menuHeaderDesktop.map((item)=> (
+								<Link to={item.url} key={item.label}>
+									<li key={item.label}>{item.label}</li>
+								</Link>
 							))}
 						</ul>
 						<div className="klz-header__desktop__button-contactme">
-							<button> <img src={contactme} alt="contact me"/>Contact Me</button>
+							<button onClick={() => setVisibleModal(true)}> <img src={contactme} alt="contact me"/>Contact Me</button>
 						</div>
 					</div>
 				</div>
@@ -76,8 +47,11 @@ const Header = (props: HeaderType) => {
 					</div>
 				</div>
 			</div>
+			{visibleModal && (
+				<ContactMeModal setVisible={setVisibleModal}/>
+			)}
 			{visible && (
-				<Sidebar data={menuItems} setVisible={setVisible} />
+				<Sidebar data={menuHeaderSidebar} setVisible={setVisible} />
 			)}
 		</>
 	)
