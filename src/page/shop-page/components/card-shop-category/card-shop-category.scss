@@ -1,13 +1,13 @@
 .klz-card-shop-category {
-	&-image {
+	&-front {
 		margin: 2rem 0;
 		img {
 			width: 100%;
-			height: 33.3rem;
+			height: auto;
 			object-fit: cover;
 		}
 	}
-	&-data {
+	&-back {
 		.klz-card-shop-category__title {
 			h4 {
 				color: #fff;
@@ -33,6 +33,19 @@
 				font-weight: 400;
 				line-height: normal;
 			}
+		}
+	}
+
+	@media (min-width: 860px) {
+		&-front {
+			img {
+				width: 50.6rem;
+				height: 50.6rem;
+				object-fit: cover;
+			}
+		}
+		&-back {
+			display: none;
 		}
 	}
 }

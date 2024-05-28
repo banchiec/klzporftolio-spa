@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { useRoutes } from "react-router-dom";
 import './global.scss'
-import chanel from './assets/svg/chanel.svg' 
 import { mainRoutes } from "./config/routes";
 
 const Noop = ({children}: React.PropsWithChildren) => {

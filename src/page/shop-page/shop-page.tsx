@@ -1,19 +1,19 @@
 import CardShopCategory from "./components/card-shop-category"
-import "./shop-page.scss"
 import StuffCantBuy from "../../assets/images/stuff-you-cant-buy.png"
 import  Commisions from "../../assets/images/commissions.png"
+import "./shop-page.scss"
 
 const categoryItems = [
 	{
 		title: "Stuff you can buy",
 		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/",
+		path: "/shop/stuff-you-can-buy",
 		image: StuffCantBuy
 	},
 	{
 		title: "Commisions",
 		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/",
+		path: "/shop/commissions",
 		image: Commisions 
 	}
 ] 

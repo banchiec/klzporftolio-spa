@@ -7,8 +7,18 @@
 	align-items: center;
 	justify-content: center;
 	overflow: unset;
-	.klz-shop-page-container {
+	&-container {
 		height: 100%;
 		padding: 1.7rem 3rem;
+	}
+	@media (min-width: 860px) {
+		margin-bottom: 0;
+		&-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 4.3rem 10.8rem 0rem 10.8rem;
+			gap: 5rem;
+		}
 	}
 }

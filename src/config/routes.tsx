@@ -5,6 +5,8 @@ import { Home } from '../page/home';
 import AboutMePage from '../page/about-me-page';
 import PortfolioPage from '../page/portfolio-page';
 import ShopPage from '../page/shop-page';
+import CommissionsPage from '../page/commissions-page';
+import CommissionsOrderPage from '../page/commission-order-page';
 
 
 export const mainRoutes = {
@@ -16,7 +18,11 @@ export const mainRoutes = {
     {path: '/about-me', element: <AboutMePage/>},
     {path: '/portfolio', element: <PortfolioPage/>},
     {path: '/shop', element: <ShopPage/>},
-    {path: '/shop', element: <AboutMePage/>},
+    {path: '/shop/stuff-you-can-buy', element: <AboutMePage/>},
+    {path: '/shop/commissions', element: <CommissionsPage/>},
+    {path: '/shop/commissions/logo', element: <CommissionsOrderPage/>},
+    {path: '/shop/commissions/cover', element: <CommissionsOrderPage/>},
+    {path: '/shop/commissions/cartoon', element: <CommissionsOrderPage/>},
     // {path: '404', element: <NotFoundPage/>},
     // {path: 'account', element: <Navigate to='/account/list' />},
   ],
