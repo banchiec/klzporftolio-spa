@@ -1,0 +1,51 @@
+.klz-review-card {
+	display: flex;
+	flex-direction: row;
+	padding: 0rem 3rem;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid white;
+		padding: 2.5rem;
+		border-radius: 5.445px;
+		border: 0.681px solid #fff;
+	}
+	&__title {
+		h3 {
+			color: #fff;
+			font-family: 'Nunito Sans';
+			font-size: 13.612px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			padding: 0.4rem 0rem;
+		}
+	}
+	&__description {
+		display: flex;
+		flex-direction: row;
+
+		p {
+			color: #fff;
+			text-align: justify;
+			font-family: 'Nunito Sans';
+			font-size: 13.612px;
+			font-style: normal;
+			font-weight: 400;
+			border: 1px solid green;
+			line-height: normal;
+		}
+
+		&__image {
+			width: auto;
+			float: right;
+			border: 1px solid green;
+			align-self: baseline;
+			img {
+				width: 12.4rem;
+				height: 10.7rem;
+				object-fit: cover;
+			}
+		}
+	}
+}

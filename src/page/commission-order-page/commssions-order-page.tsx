@@ -1,8 +1,12 @@
 import lettering from "../../assets/images/lettering.png"
-import Select from "./components/select"
-import "./commissions-order-page.scss"
 import FormCommission from "./components/form-commission"
+// import ReviewCard from "./components/review-card"
+// import image from "../../assets/images/about-me-klauz.jpeg"
+import "./commissions-order-page.scss"
 
+
+// const title = "The stories about my art"
+// const description ="Klaus's artistic prowess turned my vision into a distinctive logo for The CWord Company. Despite the complexity of my ideas, he skillfully translated them onto paper, capturing the essence of my brand in a visually compelling manner. The resulting logo not only meets but exceeds expectations, drawing consistent praise for its handmade charm and clever design. Klaus's ability to infuse humor adds a unique and memorable element, making our brand stand out in the market. Collaborating with ... more"
 
 export const CommissionsOrderPage = () => {
 	return(
@@ -31,6 +35,8 @@ export const CommissionsOrderPage = () => {
 				</div>
 				</div>
 			</div>
+			{/* <ReviewCard title={title} description={description} image={image}/> */}
 		</div>
 	)
+
 }

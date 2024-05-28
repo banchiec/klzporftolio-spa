@@ -2,7 +2,7 @@ import "./select.scss"
 import { SelectTypes } from "./types"
 
 export const Select = (props: SelectTypes) => {
-	const { name, options, label } = props
+	const { name, label } = props
 
 	return(
 		<div className="klz-select">
