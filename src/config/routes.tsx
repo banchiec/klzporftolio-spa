@@ -7,6 +7,8 @@ import PortfolioPage from '../page/portfolio-page';
 import ShopPage from '../page/shop-page';
 import CommissionsPage from '../page/commissions-page';
 import CommissionsOrderPage from '../page/commission-order-page';
+import ProductTypeCreateView from '../views/product-type-create-view';
+import CategoryCreateView from '../views/category-create-view';
 
 
 export const mainRoutes = {
@@ -15,6 +17,8 @@ export const mainRoutes = {
   children: [
     {path: '*', element: <Navigate to='/404' />},
     {path: '/', element: <Home/>},
+    {path: '/product-type', element: <ProductTypeCreateView/>},
+    {path: '/categories', element: <CategoryCreateView/>},
     {path: '/about-me', element: <AboutMePage/>},
     {path: '/portfolio', element: <PortfolioPage/>},
     {path: '/shop', element: <ShopPage/>},

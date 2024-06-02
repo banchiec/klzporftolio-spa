@@ -1,3 +1,2 @@
-import { fetchCategoriesList } from "./fetchCategoriesList";
-
-export default fetchCategoriesList
+export * from "./create"
+export * from "./list"
