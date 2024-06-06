@@ -3,7 +3,7 @@ import { fetchCategoriesList } from "../../api/categories/list/fetchCategoriesLi
 
 export const useCategoriesList = () => {
 	const { data, isLoading, isSuccess, isError} = useQuery({
-		queryKey: ["product-type"],
+		queryKey: ["categories-list"],
 		queryFn: () => fetchCategoriesList(),
 	})
 	return { data, isLoading, isSuccess, isError} 

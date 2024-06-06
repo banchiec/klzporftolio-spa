@@ -28,13 +28,11 @@ export const CategoryCreateView = (props: CategoryCreateViewType) => {
 	}))
 
 	const onSubmit = (formData:any) => {
-		console.log(formData)
 		const newCategory = new FormData()
 		newCategory.append('name', formData.name)
 		newCategory.append('description', formData.description)
 		newCategory.append('image', formData.image[0])
 		newCategory.append('productType', formData.productType)
-		console.log(newCategory)
 
 		createCategory(newCategory)
 	}

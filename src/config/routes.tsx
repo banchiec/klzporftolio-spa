@@ -9,6 +9,7 @@ import CommissionsPage from '../page/commissions-page';
 import CommissionsOrderPage from '../page/commission-order-page';
 import ProductTypeCreateView from '../views/product-type-create-view';
 import CategoryCreateView from '../views/category-create-view';
+import ProductCreateView from '../views/product-create-view';
 
 
 export const mainRoutes = {
@@ -18,6 +19,7 @@ export const mainRoutes = {
     {path: '*', element: <Navigate to='/404' />},
     {path: '/', element: <Home/>},
     {path: '/product-type', element: <ProductTypeCreateView/>},
+    {path: '/products', element: <ProductCreateView/>},
     {path: '/categories', element: <CategoryCreateView/>},
     {path: '/about-me', element: <AboutMePage/>},
     {path: '/portfolio', element: <PortfolioPage/>},
