@@ -4,4 +4,5 @@ export interface SelectType {
 	onChange: any
 	onBlur: any
 	ref: any
+	multiselect: boolean
 }

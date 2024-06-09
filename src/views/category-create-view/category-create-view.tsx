@@ -33,7 +33,7 @@ export const CategoryCreateView = (props: CategoryCreateViewType) => {
 		newCategory.append('description', formData.description)
 		newCategory.append('image', formData.image[0])
 		newCategory.append('productType', formData.productType)
-
+		
 		createCategory(newCategory)
 	}
 
@@ -69,6 +69,7 @@ export const CategoryCreateView = (props: CategoryCreateViewType) => {
 					render={({ field }) => (
 						<Select
 							{...field}
+							multiselect
 							options={productTypeFromSelect}
 						/>
 					)}

@@ -1,6 +1,6 @@
 import { fetchCategoriesList } from "./fetchCategoriesList";
 
 export const fetchCategoriesListQuery = () => ({
-		queryKey: ["categories"],
+		queryKey: ["categories-list"],
 		queryFn: () => fetchCategoriesList(),
 })

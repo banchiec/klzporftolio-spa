@@ -1,6 +1,6 @@
 export interface CardShopCategoryType {
 	description: string
 	image: any 
-	title: string
-	path?: string
+	name: string
+	available?: boolean
 }

@@ -4,32 +4,19 @@ import cover from "../../assets/images/cover.png"
 import lettering from "../../assets/images/lettering.png"
 import CardShopCategory from "../shop-page/components/card-shop-category"
 import vectorArrow from "../../assets/images/vector-arrow.png"
-
-const commissionsItems = [
-	{
-		id: 1,
-		title: "logo/lettering",
-		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/shop/commissions/logo",
-		image: lettering 
-	},
-	{
-		id: 2,
-		title: "Cartoon illustration",
-		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/shop/commissions/cartoon",
-		image: cartoon 
-	},
-	{
-		id: 3,
-		title: "Cover",
-		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/shop/commissions/cover",
-		image: cover 
-	}
-]
+import { useProductTypeList } from "../../hooks"
+import { useEffect, useState } from "react"
 
 export const CommissionsPage = () => {
+	const [productsTypes, setProductsTypes] = useState([])
+	const {data, isLoading } = useProductTypeList()
+
+	useEffect(() => {
+		if(!isLoading){
+			setProductsTypes(data)
+		}
+	}, [isLoading,data])
+
 	return (
 		<div className="klz-commissions-page">
 			<div className="klz-commissions-page-container">
@@ -44,13 +31,12 @@ export const CommissionsPage = () => {
 					</div>
 				</div>
 				<div className="klz-commissions-page__data">
-					{ commissionsItems.map((commission) => (
+					{ productsTypes?.map((productType: any) => (
 						<CardShopCategory
-							key={commission.id}
-							title={commission.title}
-							description={commission.description}
-							path={commission.path}
-							image={commission.image}
+							key={productType._id}
+							name={productType.name}
+							description={productType.description}
+							image={productType.image}
 						/>
 					))
 					}

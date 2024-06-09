@@ -5,41 +5,41 @@ import Select from "../../components/select"
 import { categoriesFromSelect, productsTypeFromSelect } from "./mapped"
 // import "./category-create-view.scss"
 
-interface ReviewType {
-	days: 4 | 7 | 10
-	price: number
-}
+// interface ReviewType {
+// 	days: 4 | 7 | 10
+// 	price: number
+// }
 
-interface DeliveryDaysType {
-	days: 4 | 7 | 10
-	price: number
-}
+// interface DeliveryDaysType {
+// 	days: 4 | 7 | 10
+// 	price: number
+// }
 
-interface DeliveryFormatType {
-	format: "png" | "jpg" | "jpeg"
-	price: number
-}
+// interface DeliveryFormatType {
+// 	format: "png" | "jpg" | "jpeg"
+// 	price: number
+// }
 
-interface ProductType {
-	name: string
-	description: string
-	image: any
-	delivaryDays: Array<DeliveryDaysType>
-	colors: Array<string>
-	productType: string
-	category: string
-	deliveryFormat: Array<DeliveryFormatType>
-	reviews: Array<ReviewType>
-	price: number
-	sold: number
-	images: any 
-	deliveryOptions: Array<string> 
-}
+// interface ProductType {
+// 	name: string
+// 	description: string
+// 	image: any
+// 	delivaryDays: Array<DeliveryDaysType>
+// 	colors: Array<string>
+// 	productType: string
+// 	category: string
+// 	deliveryFormat: Array<DeliveryFormatType>
+// 	reviews: Array<ReviewType>
+// 	price: number
+// 	sold: number
+// 	images: any 
+// 	deliveryOptions: Array<string> 
+// }
 
 export const ProductCreateView = (props: ProductCreateViewType) => {
 	const { createProduct } = useProductsCreate()
 	const { data: productTypeList } = useProductTypeList()
-	const { data: categoriesList} = useCategoriesList()
+	const { dataCategoriesList } = useCategoriesList()
 	const {
 		register, 
 		control,
@@ -47,7 +47,7 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
 	} = useForm<any>()
 
 	const productTypeSelected =  productsTypeFromSelect(productTypeList)
-	const categoriesSelected =  categoriesFromSelect(categoriesList)
+	const categoriesSelected =  categoriesFromSelect(dataCategoriesList)
 
 	const onSubmit =  (formData:any) => {
 		console.log(formData)
@@ -59,8 +59,8 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
 		product.append('category', formData.category)
 		product.append('sold', formData.sold)
 		product.append('price', formData.price)
-		// console.log(product)
-		createProduct(product)
+		console.log(product)
+		// createProduct(product)
 	}
 
 	return (
@@ -84,6 +84,7 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
 					control={control}
 					render={({ field }) => (
 						<Select
+							multiselect={false}
 							{...field}
 							options={categoriesSelected}
 						/>
@@ -94,6 +95,7 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
 					control={control}
 					render={({ field }) => (
 						<Select
+							multiselect={false}
 							{...field}
 							options={productTypeSelected}
 						/>
