@@ -6,6 +6,10 @@ import { Loading } from "../../components/loading"
 import { LoadingWizard } from "../../components/loadingWizard"
 import CardShopCategory from "./components/card-shop-category"
 
+interface CategoryType {
+}
+
+
 
 export const ShopPage = (props: ShopPageType) => {
 	const [categories, setCategories] = useState([])
@@ -24,17 +28,16 @@ export const ShopPage = (props: ShopPageType) => {
 		return <div><Loading/></div>
 	}
 
+	console.log(categories)
 
 	return(
 		<div className="klz-shop-page">
 			<div className="klz-shop-page-container">
 				{ categories?.map((category:any ) =>(
-							<CardShopCategory  
-								key={category._id}
-								name={category.name} 
-								description={category.description}
-								image={category.image}
-							/>
+					<CardShopCategory  
+						key={category._id}
+						category={category}
+					/>
 				))}
 			</div>
 		</div>

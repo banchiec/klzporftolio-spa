@@ -5,11 +5,11 @@ import { Home } from '../page/home';
 import AboutMePage from '../page/about-me-page';
 import PortfolioPage from '../page/portfolio-page';
 import ShopPage from '../page/shop-page';
-import CommissionsPage from '../page/commissions-page';
 import CommissionsOrderPage from '../page/commission-order-page';
 import ProductTypeCreateView from '../views/product-type-create-view';
 import CategoryCreateView from '../views/category-create-view';
 import ProductCreateView from '../views/product-create-view';
+import { CategoryShopView } from '../views/category-shop-view';
 
 
 export const mainRoutes = {
@@ -24,8 +24,8 @@ export const mainRoutes = {
     {path: '/about-me', element: <AboutMePage/>},
     {path: '/portfolio', element: <PortfolioPage/>},
     {path: '/shop', element: <ShopPage/>},
-    {path: '/shop/stuff-you-can-buy', element: <AboutMePage/>},
-    {path: '/shop/commissions', element: <CommissionsPage/>},
+    // {path: '/shop/stuff-you-can-buy', element: <AboutMePage/>},
+    {path: '/shop/:category', element: <CategoryShopView/>},
     {path: '/shop/commissions/logo-lettering', element: <CommissionsOrderPage />},
     {path: '/shop/commissions/cover', element: <CommissionsOrderPage />},
     {path: '/shop/commissions/cartoon-illustration', element: <CommissionsOrderPage />},

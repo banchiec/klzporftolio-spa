@@ -5,16 +5,15 @@ import { useEffect, useState } from "react"
 import "./card-shop-category.scss"
 
 export const CardShopCategory = (props: CardShopCategoryType) => {
-	const { name, description, image } = props
+	const { category } = props
+	const { name, description, image} =  category
 	const [imagePath, setImagePath] = useState()
 
-	console.log(image)
 	const pathFile = `${image?.split('\\')[1]}`
 	const pathImage = `${image?.split('\\')[2]}`
 
 	const path = `${pathFile}\\${pathImage}` 
 
-	// console.log(path)
 	const {data, isLoading} = useSingleUpload(path)
 
 	let pathCommissions= name?.toLowerCase().split(' ').join('-')
@@ -24,14 +23,13 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 		pathCommissions = `commissions/${nameFisrt}`
 	}
 	if(name === "Cover"){
-		pathCommissions = `commissions/${name.toLowerCase()}`
+		pathCommissions = `commissions/${name?.toLowerCase()}`
 	}
 
 	if(name === "Cartoon Illustration"){
-		let nameFisrt = name.toLowerCase().split(' ').join('-')
+		let nameFisrt = name?.toLowerCase().split(' ').join('-')
 		pathCommissions = `commissions/${nameFisrt}`
 	}
-	console.log(pathCommissions)
 
 	useEffect(() => {
 		if(!isLoading){
