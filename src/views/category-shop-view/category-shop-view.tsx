@@ -5,33 +5,24 @@ import { useEffect, useState } from "react"
 import { CategoryShopViewType } from "./types"
 import CardShopCategory from "../../page/shop-page/components/card-shop-category"
 import { Loading } from "../../components/loading"
-import "./category-shop-view.scss"
 import { getCategoryForByName } from "./utils"
+import "./category-shop-view.scss"
 
 export const CategoryShopView = (props: CategoryShopViewType) => {
 	const params = useParams()
 	const [loading, setLoading] = useState<any>()
-	const [categories, setCategories] = useState([])
 	const {dataCategoriesList, isLoadingCategoriesList} = useCategoriesList()
+	const [categories, setCategories] = useState([])
 
-	console.log(params)
+	const category = getCategoryForByName(categories, params)
 
-	const category = getCategoryForByName(dataCategoriesList, params)
-
-	// const category = dataCategoriesList?.find((dataCategory:any) => {
-	// 	const pathCategory = dataCategory.name.toLowerCase()
-	// 		return pathCategory.replaceAll(" ", "-") === params.category
-	// } )
-	
-	console.log(category)
-	
 	useEffect(() => {
 		if(isLoadingCategoriesList){
 			setLoading(<Loading/>)
 		}else{
 			setCategories(dataCategoriesList)
 		}
-	}, [])
+	}, [isLoadingCategoriesList, dataCategoriesList])
 
 	if(isLoadingCategoriesList){
 		return <div>{loading}</div>

@@ -2,23 +2,7 @@ import { FormProvider, useForm } from "react-hook-form"
 import { useCategoriesCreate, useProductTypeList } from "../../hooks"
 import { CategoryCreateViewType } from "./types"
 import "./category-create-view.scss"
-
-const FORM_INPUT_DEFAULT = {
-	boolean: true,
-	input: "",
-	array: [],
-	object: {},
-	select: null,
-	number: 0
-}
-
-const CATEGORY_DEFAULT_VALUES = {
-	name: FORM_INPUT_DEFAULT.input,
-	description: FORM_INPUT_DEFAULT.input,
-	available: FORM_INPUT_DEFAULT.boolean,
-	productType: FORM_INPUT_DEFAULT.select,
-	image: FORM_INPUT_DEFAULT.select
-}
+import { CATEGORY_DEFAULT_VALUES } from "./constants"
 
 export const CategoryCreateView = (props: CategoryCreateViewType) => {
 	const { createCategory } = useCategoriesCreate()
@@ -30,10 +14,7 @@ export const CategoryCreateView = (props: CategoryCreateViewType) => {
 		}
 	})
 
-	const {
-		register, 
-		handleSubmit, 
-	} = formCategory
+	const { register, handleSubmit } = formCategory
 
 	
 	const productTypeFromSelect= dataProductType?.map((dataProduct: any) => ({
@@ -48,57 +29,55 @@ export const CategoryCreateView = (props: CategoryCreateViewType) => {
 		newCategory.append('description', formData.description)
 		newCategory.append('image', formData.image[0])
 		newCategory.append('productType', formData.productType)
-		
 		createCategory(newCategory)
-
 	}
 
 	return (
 		<FormProvider { ...formCategory}>
-		<div className="klz-product-type-create-view">
-			<h2>Category</h2>
-			<form onSubmit={handleSubmit(onSubmit)} encType= "multipart/form-data">
-				<input 
-					{...register("name")}
-					placeholder="Name"
-				/>
-				<br/>
-				<input 
-					{...register("description")}
-					placeholder="Description" 
-				/>
-				<br/>
-				<div>
-					<label>Available</label>
+			<div className="klz-product-type-create-view">
+				<h2>Category</h2>
+				<form onSubmit={handleSubmit(onSubmit)} encType= "multipart/form-data">
 					<input 
-						type="checkbox"
-						{...register("available")}
+						{...register("name")}
+						placeholder="Name"
 					/>
-				</div>
-				<br/>
+					<br/>
+					<input 
+						{...register("description")}
+						placeholder="Description" 
+					/>
+					<br/>
+					<div>
+						<label>Available</label>
+						<input 
+							type="checkbox"
+							{...register("available")}
+						/>
+					</div>
+					<br/>
 
-				<select 
-					multiple
-					{...register("productType", {
-						required: "Recipe picture is required"
-					})}
-				>
-					{productTypeFromSelect?.map((option:any) => (
-						<option key={option.value} value={option.value}>{option.label}</option>
-					))}
-				</select>
+					<select 
+						multiple
+						{...register("productType", {
+							required: "Recipe picture is required"
+						})}
+					>
+						{productTypeFromSelect?.map((option:any) => (
+							<option key={option.value} value={option.value}>{option.label}</option>
+						))}
+					</select>
 
-				<input 
-					type="file"
-					placeholder="Image" 
-					{...register("image", {
-						required: "Recipe picture is required"
-					})}
-				/>
+					<input 
+						type="file"
+						placeholder="Image" 
+						{...register("image", {
+							required: "Recipe picture is required"
+						})}
+					/>
 
-				<button>Crear</button>
-			</form>
-		</div>
+					<button>Crear</button>
+				</form>
+			</div>
 		</FormProvider>
 	)
 }

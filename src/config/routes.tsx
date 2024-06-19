@@ -10,6 +10,7 @@ import ProductTypeCreateView from '../views/product-type-create-view';
 import CategoryCreateView from '../views/category-create-view';
 import ProductCreateView from '../views/product-create-view';
 import { CategoryShopView } from '../views/category-shop-view';
+import { CommissionsCreateView } from '../views/commission-create-view';
 
 
 export const mainRoutes = {
@@ -26,9 +27,10 @@ export const mainRoutes = {
     {path: '/shop', element: <ShopPage/>},
     // {path: '/shop/stuff-you-can-buy', element: <AboutMePage/>},
     {path: '/shop/:category', element: <CategoryShopView/>},
-    {path: '/shop/commissions/logo-lettering', element: <CommissionsOrderPage />},
-    {path: '/shop/commissions/cover', element: <CommissionsOrderPage />},
-    {path: '/shop/commissions/cartoon-illustration', element: <CommissionsOrderPage />},
+    {path: '/shop/commissions/:productType', element: <CommissionsCreateView/>},
+    // {path: '/shop/commissions/logo-lettering', element: <CommissionsOrderPage />},
+    // {path: '/shop/commissions/cover', element: <CommissionsOrderPage />},
+    // {path: '/shop/commissions/cartoon-illustration', element: <CommissionsOrderPage />},
     // {path: '404', element: <NotFoundPage/>},
     // {path: 'account', element: <Navigate to='/account/list' />},
   ],

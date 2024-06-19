@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductCreateViewType } from "./types";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import {
   useCategoriesList,
   useProductsCreate,
@@ -8,49 +8,36 @@ import {
 } from "../../hooks";
 import Select from "../../components/select";
 import { categoriesFromSelect, productsTypeFromSelect } from "./mapped";
-// import "./category-create-view.scss"
+import { PRODUCT_DEFAULT_VALUES } from "./constants";
+import "./product-create-view.scss"
 
-interface ReviewType {
-  days: 4 | 7 | 10;
-  price: number;
-}
-
-interface DeliveryDaysType {
-  days: 4 | 7 | 10;
-  price: number;
-}
-
-interface DeliveryFormatType {
-  format: "png" | "jpg" | "jpeg";
-  price: number;
-}
-
-interface ProductType {
-  name: string;
-  description: string;
-  image: any;
-  delivaryDays: Array<DeliveryDaysType>;
-  colors: Array<string>;
-  productType: string;
-  category: string;
-  deliveryFormat: Array<DeliveryFormatType>;
-  reviews: Array<ReviewType>;
-  price: number;
-  sold: number;
-  images: any;
-  deliveryOptions: Array<string>;
-}
 
 export const ProductCreateView = (props: ProductCreateViewType) => {
   const { createProduct } = useProductsCreate();
   const { data: productTypeList } = useProductTypeList();
   const { dataCategoriesList } = useCategoriesList();
-  const { register, control, handleSubmit } = useForm<any>();
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [imagesForUpload, setImagesForUpload] = useState<File[]>([]);
 
   const productTypeSelected = productsTypeFromSelect(productTypeList);
   const categoriesSelected = categoriesFromSelect(dataCategoriesList);
+
+  const formProduct = useForm({
+    defaultValues: {
+      ...PRODUCT_DEFAULT_VALUES
+    }
+  })
+  const { register, control, handleSubmit, watch } = formProduct;
+  const image:any = watch('images')
+  const imagePreview = image ? URL.createObjectURL(image[0]) : null
+
+  useEffect(() => {
+    return () => {
+      if(imagePreview){
+        URL.revokeObjectURL(imagePreview[0])
+      }
+    }
+  }, [imagePreview])
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -76,7 +63,6 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
   };
 
   const onSubmit = (formData: any) => {
-    console.log(formData);
     const product = new FormData();
     product.append("name", formData.name);
     product.append("description", formData.description);
@@ -88,63 +74,71 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
       product.append("images", image);
     });
 
-    console.log(imagesForUpload, "images for upload while onSubmit was sent");
     createProduct(product);
   };
 
   return (
-    <div className="klz-product-type-create-view">
-      <h2>New Product</h2>
-      <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-        <input {...register("name")} placeholder="Name" name="name" />
-        <br />
-        <input
-          {...register("description")}
-          placeholder="Description"
-          name="description"
-        />
-        <br />
-        <Controller
-          name="category"
-          control={control}
-          render={({ field }) => (
-            <Select {...field} 
-              multiselect={false}
-              options={categoriesSelected} />
-          )}
-        />
-        <Controller
-          name="productType"
-          control={control}
-          render={({ field }) => (
-            <Select 
-              multiselect={false}
-            {...field} options={productTypeSelected} />
-          )}
-        />
-        <input
-          {...register("sold")}
-          type="number"
-          placeholder="Sold"
-          name="sold"
-        />
-        <input
-          {...register("price")}
-          type="number"
-          placeholder="Price"
-          name="price"
-        />
-        <br />
-        <input
-          type="file"
-          multiple={true}
-          {...register("images", {
-            required: "Recipe picture is required",
-          })}
-          onChange={handleFileInputChange}
-        />
-        <button>Crear</button>
-      </form>
+    <FormProvider {...formProduct}>
+    <div className="klz-product-create-view">
+      <div>
+        <h2>New Product</h2>
+      </div>
+      <div className="klz-product-create-view-container">
+        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+          <input {...register("name")} placeholder="Name" name="name" />
+          <br />
+          <input
+            {...register("description")}
+            placeholder="Description"
+            name="description"
+          />
+          <br />
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <Select {...field} 
+                multiselect={false}
+                options={categoriesSelected} />
+            )}
+          />
+          <Controller
+            name="productType"
+            control={control}
+            render={({ field }) => (
+              <Select 
+                multiselect={false}
+              {...field} options={productTypeSelected} />
+            )}
+          />
+          <input
+            {...register("sold")}
+            type="number"
+            placeholder="Sold"
+            name="sold"
+          />
+          <input
+            {...register("price")}
+            type="number"
+            placeholder="Price"
+            name="price"
+          />
+          <br />
+          <input
+            type="file"
+            multiple={true}
+            {...register("images", {
+              required: "Recipe picture is required",
+            })}
+            onChange={handleFileInputChange}
+          />
+          <button>Crear</button>
+        </form>
+        <div>
+          {imagePreview && <img src={imagePreview} alt="preview"/>}
+        </div>
+      </div>
     </div>
+    </FormProvider>
   );
 };

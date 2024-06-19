@@ -1,5 +1,5 @@
 import { CardShopCategoryType } from "./types"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useSingleUpload } from "../../../../hooks/upload/useSingleUpload"
 import { useEffect, useState } from "react"
 import "./card-shop-category.scss"

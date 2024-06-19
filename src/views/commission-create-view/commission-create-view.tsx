@@ -1,12 +1,11 @@
-import FormCommission from "./components/form-commission"
-import "./commissions-order-page.scss"
 import { useProductTypeList } from "../../hooks"
 import { useLocation, useParams } from "react-router-dom"
 import useSingleUpload from "../../hooks/upload"
 import { useEffect, useState } from "react"
+import "./commissions-create-view.scss"
 
 
-export const CommissionsOrderPage = () => {
+export const CommissionsCreateView = () => {
 	const params = useParams()
 	const location = useLocation()
 	const [imagePath, setImagePath] = useState()
@@ -63,7 +62,7 @@ export const CommissionsOrderPage = () => {
 					<div className="klz-commissions-order__form__body">
 						<p>I create unique, handmade retro-futuristic logos, typography, and artworks in a cartoon style. Based on your description, I bring your ideas to life. Feel free to ask questions or place an order if you think your concept aligns with my style!</p>
 					</div>
-					<FormCommission/>
+					{/* <FormCommission/> */}
 				</div>
 				</div>
 			</div>

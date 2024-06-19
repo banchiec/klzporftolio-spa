@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react"
 import { useCategoriesList } from "../../hooks"
 import { ShopPageType } from "./types"
-import "./shop-page.scss"
 import { Loading } from "../../components/loading"
-import { LoadingWizard } from "../../components/loadingWizard"
 import CardShopCategory from "./components/card-shop-category"
-
-interface CategoryType {
-}
-
+import "./shop-page.scss"
 
 
 export const ShopPage = (props: ShopPageType) => {
@@ -24,21 +19,17 @@ export const ShopPage = (props: ShopPageType) => {
 		}
 	},[isLoadingCategoriesList, dataCategoriesList])
 
-	if(isLoadingCategoriesList){
-		return <div><Loading/></div>
-	}
-
-	console.log(categories)
-
 	return(
 		<div className="klz-shop-page">
 			<div className="klz-shop-page-container">
-				{ categories?.map((category:any ) =>(
+				{ !isLoadingCategoriesList? categories?.map((category:any ) => (
 					<CardShopCategory  
 						key={category._id}
 						category={category}
 					/>
-				))}
+				)): (
+					<>{loading}</>
+				)}
 			</div>
 		</div>
 	)
