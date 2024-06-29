@@ -1,38 +1,32 @@
 import { useProductTypeList } from "../../hooks"
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import useSingleUpload from "../../hooks/upload"
 import { useEffect, useState } from "react"
+import { getNameForUrlProductType, getPathImageForProductTypeName } from "./uitls"
+import { LoaderDots } from "../../components/loader-solar-system"
 import "./commissions-create-view.scss"
+import FormCommission from "../../page/commission-order-page/components/form-commission"
+import ReviewCard from "../../page/commission-order-page/components/review-card"
 
 
 export const CommissionsCreateView = () => {
-	const params = useParams()
 	const location = useLocation()
 	const [imagePath, setImagePath] = useState()
-	const {data} = useProductTypeList()
-	console.log(params)
-
-	let productTypePath= location.pathname.split('/')[3]
-	let productTypeName =""
-	if(productTypePath=== "cartoon-illustration"){
-		productTypeName = "Cartoon Illustration"
-	}
-	if(productTypePath=== "logo-lettering"){
-		productTypeName = "Logo/Lettering"
-	}
-	if(productTypePath === "cover"){
-		productTypeName = "Cover"
-	}
-	const productType = data?.find((product: any) => product.name === productTypeName )
-
-	const pathFile = `${productType?.image?.split('\\')[1]}`
-	const pathImage = `${productType?.image?.split('\\')[2]}`
-
-	const path = `${pathFile}\\${pathImage}` 
-	console.log(path)
-
-
+	const {data, isLoading } = useProductTypeList()
+	const [productsType, setProductsType] = useState([])
+	const [loader, setLoader] = useState<any>()
+	const locationImage = location.pathname.split('/')[3]
+	const productTypeName = getNameForUrlProductType(locationImage)
+	const path = getPathImageForProductTypeName(productsType, productTypeName)
 	const {data: dataImage, isLoading: isLoadingImage } = useSingleUpload(path)
+
+	useEffect(() => {
+		if(isLoading){
+			setLoader(<LoaderDots/>)
+		}else{
+			setProductsType(data)
+		}
+	},[isLoading, data, productTypeName])
 
 	useEffect(() => {
 		if(!isLoadingImage){
@@ -41,6 +35,8 @@ export const CommissionsCreateView = () => {
 	}, [isLoadingImage,dataImage])
 
 	return(
+		<div>
+		{ !isLoading ? (
 		<div className="klz-commissions-order">
 			<div className="klz-commissions-order__container">
 				<div className="klz-commissions-order__details">
@@ -48,25 +44,30 @@ export const CommissionsCreateView = () => {
 						<img src={imagePath} alt="image_product"/>
 					</div>
 					<div className="klz-commissions-order__details__description">
-						<p>I create unique, handmade retro-futuristic logos, typography, and <br/>artworks in a cartoon style. Based on your description, I bring your <br/>ideas to life. Feel free to ask questions or place an order if you think <br/>your concept aligns with my style!</p>
+						<p>I create unique, handmade retro-futuristic logos, typography, and <br/>
+						artworks in a cartoon style. Based on your description, I bring your <br/>
+						ideas to life. Feel free to ask questions or place an order if you think <br/>
+						your concept aligns with my style!</p>
+					
 					</div>
 				</div>
 				<div>
 
 				<div className="klz-commissions-order__form">
 					<div className="klz-commissions-order__form__header">
-						<h2>LOGO/LETTERING</h2>
-						
+						<h2>{productTypeName ?? ""}</h2>
 						<p><span>from</span>50€</p>
 					</div>
 					<div className="klz-commissions-order__form__body">
 						<p>I create unique, handmade retro-futuristic logos, typography, and artworks in a cartoon style. Based on your description, I bring your ideas to life. Feel free to ask questions or place an order if you think your concept aligns with my style!</p>
 					</div>
-					{/* <FormCommission/> */}
+					<FormCommission/>
 				</div>
 				</div>
 			</div>
-			{/* <ReviewCard title={title} description={description} image={image}/> */}
+			{/* <ReviewCard title={"Prueb"} description={"Description"} image={imagePath}/> */}
+		</div>
+	): (<>{loader}</>)}
 		</div>
 	)
 

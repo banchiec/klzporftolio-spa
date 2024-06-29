@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useCategoriesList } from "../../hooks"
 import { ShopPageType } from "./types"
-import { Loading } from "../../components/loading"
 import CardShopCategory from "./components/card-shop-category"
 import "./shop-page.scss"
+import { LoaderDots } from "../../components/loader-solar-system"
 
 
 export const ShopPage = (props: ShopPageType) => {
@@ -13,7 +13,7 @@ export const ShopPage = (props: ShopPageType) => {
 
 	useEffect(()=> {
 		if(isLoadingCategoriesList){
-			setLoading(<Loading/>)
+			setLoading(<LoaderDots/>)
 		}else{
 			setCategories(dataCategoriesList)
 		}
