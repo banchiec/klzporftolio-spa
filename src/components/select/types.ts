@@ -1,5 +1,3 @@
-import React from "react"
-
 export interface SelectType {
 	name: string
 	options: any

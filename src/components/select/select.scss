@@ -10,7 +10,7 @@
 		font-weight: 700;
 		line-height: normal;
 	}
-	&__custom {
+	select {
 		border: 0.708px solid #fff;
 		border-radius: 5.661px;
 		display: flex;
@@ -18,15 +18,16 @@
 		color: white;
 		width: 100%;
 		background: var(--Neutral-Dark, #0a0a0a);
-
 		option {
-			background-color: fff;
+			background-color: #fff;
+			border-top: 0.1rem solid #000;
 			font-family: 'Nunito Sans';
 			height: auto;
 			font-size: 14.153px;
 			font-style: normal;
 			font-weight: 400;
-			color: white;
+			margin: 1rem 0;
+			color: black;
 		}
 	}
 	img {

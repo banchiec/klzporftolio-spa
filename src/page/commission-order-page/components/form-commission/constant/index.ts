@@ -1,5 +1,11 @@
 import { FORM_INPUT_DEFAULT } from "../../../../../constants";
 
+export const DEFAULT_COMMISSIONS_SELECT_VALUE = {
+	label: "",
+	price: 0,
+	value: 0
+}
+
 export const COMMISSIONS_DEFAULT_VALUES = {
 	deliveryDays: FORM_INPUT_DEFAULT.select,
 	colors: FORM_INPUT_DEFAULT.select,
@@ -8,20 +14,70 @@ export const COMMISSIONS_DEFAULT_VALUES = {
 	deliveryFormat: FORM_INPUT_DEFAULT.select
 }
 
+export const COMMISSIONS_INPUTS_DEFAULT_NAMES = {
+	deliveryDays: "delivery-days",
+	color: "colors",
+	description: "description",
+	revisions: "revisions",
+	deliveryFormat: "delivery-format"
+}
+
 export const FORM_COMMISSIONS_SELECTED_VALUES = 
 	{
 		deliveryDays: [
 			{
-				"name": "1 day",
-				"value": "10 day",
+				label: "10 Days",
+				price: 0,
+				value: 10
 			},
 			{
-				"name": "1 day",
-				"value": "20 day",
+				label: "7 Days",
+				price: 20,
+				value: 7
 			},
 			{
-				"name": "1 day",
-				"value": "30 day",
+				label: "4 Days",
+				price: 40,
+				value: 4
 			}
 		],
+		revisions: [
+			{
+				label: "1 Revision",
+				price: 0,
+				value: 1
+			},
+			{
+				label: "2 Revision",
+				price: 10,
+				value: 2
+			},
+			{
+				label: "3 Revision",
+				price: 20,
+				value: 3
+			},
+			{
+				label: "4 Revision",
+				price: 30,
+				value: 4
+			}
+		],
+    deliveryFormat: [
+			{
+				label: "JPG + Source file",
+				price: 0,
+				value: 1
+			},
+			{
+				label: "PNG + Source file",
+				price: 20,
+				value: 2 
+			},
+			{
+				label: "SVG + Source file",
+				price: 40,
+				value: 3
+			}
+		]
 	}

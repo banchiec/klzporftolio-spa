@@ -16,7 +16,7 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
   const { createProduct } = useProductsCreate();
   const { data: productTypeList } = useProductTypeList();
   const { dataCategoriesList } = useCategoriesList();
-  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  // const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [imagesForUpload, setImagesForUpload] = useState<File[]>([]);
 
   const productTypeSelected = productsTypeFromSelect(productTypeList);
@@ -44,11 +44,11 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
     if (!files) return;
 
     const newImages = Array.from(files);
-    const newImagePreviews = newImages.map((file) =>
-      URL.createObjectURL(file as Blob)
-    );
+    // const newImagePreviews = newImages.map((file) =>
+    //   URL.createObjectURL(file as Blob)
+    // );
 
-    setSelectedImages((prevImages) => [...prevImages, ...newImagePreviews]);
+    // setSelectedImages((prevImages) => [...prevImages, ...newImagePreviews]);
     setImagesForUpload((prevImages) => [...prevImages, ...newImages]);
   };
 
