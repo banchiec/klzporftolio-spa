@@ -12,7 +12,7 @@ export const CustomSelect:any = (props: CustomSelectType) => {
 	}
 
 	const handleSelectedOption = (option: any) => {
-		setOption(option)
+		setOption(option);
 	}
 
 	return(

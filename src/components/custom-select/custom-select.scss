@@ -1,7 +1,7 @@
 .custom-select {
 	display: flex;
 	flex-direction: column;
-	gap: 0.1rem;
+	gap: 0.5rem;
 	span {
 		color: #fff;
 		font-family: 'Nunito Sans';
@@ -56,10 +56,15 @@
 		}
 	}
 	&-options__container {
-		margin-top: -1.4rem;
+		position: absolute;
+		width: 37rem;
+		margin-top: 5.1rem;
+		z-index: 1000100000;
 		ul {
 			list-style: none;
 			padding: 0rem;
+			margin-top: 2rem;
+			background: var(--Neutral-Dark, #0a0a0a);
 			li {
 				display: flex;
 				justify-content: space-between;
@@ -87,5 +92,8 @@
 	}
 
 	@media (min-width: 860px) {
+		&-options__container {
+			width: 43rem;
+		}
 	}
 }

@@ -5,6 +5,7 @@
 	&__details {
 		&__image {
 			img {
+				object-fit: fill;
 				width: 100%;
 				height: 39.8rem;
 			}
@@ -111,7 +112,6 @@
 					line-height: normal;
 				}
 			}
-
 			textarea {
 				width: 100%;
 				color: white;

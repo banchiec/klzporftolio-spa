@@ -79,5 +79,57 @@ export const FORM_COMMISSIONS_SELECTED_VALUES =
 				price: 40,
 				value: 3
 			}
+		],
+		colors: [
+			{
+				label: "#CA01FD",
+				price: 0,
+				value: 1
+			},
+			{
+				label: "#FF69DA",
+				price: 0,
+				value: 2 
+			},
+			{
+				label: "#FFC3F0",
+				price: 0,
+				value: 3 
+			},
+			{
+				label: "#42FBFF",
+				price: 0,
+				value: 4 
+			},
+			{
+				label: "#B3FDFF",
+				price: 0,
+				value: 5 
+			},
+			{
+				label: "#51F372",
+				price: 0,
+				value: 6 
+			},
+			{
+				label: "#5FFFC0",
+				price: 0,
+				value: 7 
+			},
+			{
+				label: "#FFFF5D",
+				price: 0,
+				value: 8 
+			},
+			{
+				label: "#FFA454",
+				price: 0,
+				value: 9 
+			},
+			{
+				label: "#FF4A77",
+				price: 0,
+				value: 10 
+			},
 		]
 	}

@@ -8,7 +8,9 @@ export interface CustomSelectType {
 	name: string,
 	label: string,
 	value: any,
-	setOption: any,
+	price?: number,
+	setOption?: any,
+	setPrice?: any,
 	customSelectRef: any
 	options: Array<CustomOptionType> 
 }

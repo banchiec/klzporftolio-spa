@@ -2,12 +2,11 @@ import { useProductTypeList } from "../../hooks"
 import { useLocation } from "react-router-dom"
 import useSingleUpload from "../../hooks/upload"
 import { useEffect, useState } from "react"
-import { getNameForUrlProductType, getPathImageForProductTypeName } from "./uitls"
+import { getNameForUrlProductType, getPathImageForProductTypeName, getProductTypeByName } from "./uitls"
 import { LoaderDots } from "../../components/loader-solar-system"
-import "./commissions-create-view.scss"
 import FormCommission from "../../page/commission-order-page/components/form-commission"
 import ReviewCard from "../../page/commission-order-page/components/review-card"
-
+import "./commissions-create-view.scss"
 
 export const CommissionsCreateView = () => {
 	const location = useLocation()
@@ -18,6 +17,7 @@ export const CommissionsCreateView = () => {
 	const locationImage = location.pathname.split('/')[3]
 	const productTypeName = getNameForUrlProductType(locationImage)
 	const path = getPathImageForProductTypeName(productsType, productTypeName)
+	const productTypeByName = getProductTypeByName(productsType, productTypeName)
 	const {data: dataImage, isLoading: isLoadingImage } = useSingleUpload(path)
 
 	useEffect(() => {
@@ -32,7 +32,7 @@ export const CommissionsCreateView = () => {
 		if(!isLoadingImage){
 			setImagePath(dataImage)
 		}
-	}, [isLoadingImage,dataImage])
+	}, [isLoadingImage, dataImage])
 
 	return(
 		<div>
@@ -61,7 +61,7 @@ export const CommissionsCreateView = () => {
 					<div className="klz-commissions-order__form__body">
 						<p>I create unique, handmade retro-futuristic logos, typography, and artworks in a cartoon style. Based on your description, I bring your ideas to life. Feel free to ask questions or place an order if you think your concept aligns with my style!</p>
 					</div>
-					<FormCommission/>
+					<FormCommission productType={productTypeByName}/>
 				</div>
 				</div>
 			</div>
