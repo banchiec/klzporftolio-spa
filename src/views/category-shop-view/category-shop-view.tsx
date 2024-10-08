@@ -12,7 +12,7 @@ export const CategoryShopView = (props: CategoryShopViewType) => {
 	const params = useParams()
 	const [loading, setLoading] = useState<any>()
 	const [categories, setCategories] = useState([])
-	const {dataCategoriesList, isLoadingCategoriesList} = useCategoriesList()
+	const { dataCategoriesList, isLoadingCategoriesList } = useCategoriesList()
 
 	console.log(params)
 
@@ -22,36 +22,36 @@ export const CategoryShopView = (props: CategoryShopViewType) => {
 	// 	const pathCategory = dataCategory.name.toLowerCase()
 	// 		return pathCategory.replaceAll(" ", "-") === params.category
 	// } )
-	
+
 	console.log(category)
-	
+
 	useEffect(() => {
-		if(isLoadingCategoriesList){
-			setLoading(<Loading/>)
-		}else{
+		if (isLoadingCategoriesList) {
+			setLoading(<Loading />)
+		} else {
 			setCategories(dataCategoriesList)
 		}
 	}, [])
 
-	if(isLoadingCategoriesList){
+	if (isLoadingCategoriesList) {
 		return <div>{loading}</div>
 	}
 
-	return(
+	return (
 		<div className="klz-commissions-page">
 			<div className="klz-commissions-page-container">
-				
+
 				<div className="klz-commissions-page__header">
 					<div className="klz-commissions-page__header__title">
 						<h1>{category?.name}</h1>
 					</div>
 					<div className="klz-commissions-page__header__question">
-						<p>Uncertain about <br/> what's right for you?</p>
-						<img src={vectorArrow} alt="vector-arrow"/>
+						<p>Uncertain about <br /> what's right for you?</p>
+						<img src={vectorArrow} alt="vector-arrow" />
 					</div>
 				</div>
 				<div className="klz-commissions-page__data">
-					{ category?.productType?.map((productType: any) => (
+					{category?.productType?.map((productType: any) => (
 						<CardShopCategory
 							key={productType._id}
 							category={productType}
