@@ -1,4 +1,4 @@
-import "./card-shop-category.scss"
+import "../card-shop-category/card-shop-category.scss"
 
 export const CardShopCategorySkeleton = () => {
   return (

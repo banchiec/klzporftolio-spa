@@ -1,1 +1,6 @@
-export interface CardAboutMeType {}
+export interface CardAboutMeType {
+	title: string
+	subtitle: string
+	description: string
+	image:any 
+}

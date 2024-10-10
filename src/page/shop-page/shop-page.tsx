@@ -24,12 +24,6 @@ export const ShopPage = (props: ShopPageType) => {
 		}
 	},[isLoadingCategoriesList, dataCategoriesList])
 
-	if(isLoadingCategoriesList){
-		return <div><Loading/></div>
-	}
-
-	console.log(categories)
-
 	return(
 		<div className="klz-shop-page">
 			<div className="klz-shop-page-container">

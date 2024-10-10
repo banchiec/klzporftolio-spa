@@ -37,6 +37,7 @@
 		img {
 			width: 100%;
 			flex-shrink: 0;
+			min-height: 24rem;
 			object-fit: contain;
 		}
 		&__description {

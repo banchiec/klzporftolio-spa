@@ -14,16 +14,7 @@ export const CategoryShopView = (props: CategoryShopViewType) => {
 	const [categories, setCategories] = useState([])
 	const { dataCategoriesList, isLoadingCategoriesList } = useCategoriesList()
 
-	console.log(params)
-
 	const category = getCategoryForByName(dataCategoriesList, params)
-
-	// const category = dataCategoriesList?.find((dataCategory:any) => {
-	// 	const pathCategory = dataCategory.name.toLowerCase()
-	// 		return pathCategory.replaceAll(" ", "-") === params.category
-	// } )
-
-	console.log(category)
 
 	useEffect(() => {
 		if (isLoadingCategoriesList) {
@@ -31,16 +22,11 @@ export const CategoryShopView = (props: CategoryShopViewType) => {
 		} else {
 			setCategories(dataCategoriesList)
 		}
-	}, [])
-
-	if (isLoadingCategoriesList) {
-		return <div>{loading}</div>
-	}
+	}, [isLoadingCategoriesList, dataCategoriesList])
 
 	return (
 		<div className="klz-commissions-page">
 			<div className="klz-commissions-page-container">
-
 				<div className="klz-commissions-page__header">
 					<div className="klz-commissions-page__header__title">
 						<h1>{category?.name}</h1>

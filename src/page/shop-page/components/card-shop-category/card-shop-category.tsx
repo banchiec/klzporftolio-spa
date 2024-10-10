@@ -3,14 +3,11 @@ import { Link } from "react-router-dom"
 import { useSingleUpload } from "../../../../hooks/upload/useSingleUpload"
 import { useEffect, useState } from "react"
 import "./card-shop-category.scss"
-import { CardShopCategorySkeleton } from "./card-shop-category-skeleton"
+import { CardShopCategorySkeleton } from "../card-shop-skeleton/card-shop-category-skeleton"
 
 export const CardShopCategory = (props: CardShopCategoryType) => {
 	const { category } = props
 	const { name, description, image } = category
-	console.log(name)
-	console.log(image)
-	console.log(description)
 	const [imagePath, setImagePath] = useState()
 
 	const pathFile = `${image?.split('\\')[1]}`
@@ -41,45 +38,51 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 		}
 	}, [isLoading, data])
 
+	console.log("object");
+
 	return (
-		<div className="klz-card-shop-category">
-			<div className="klz-card-shop-category-box">
-				<div className="klz-card-shop-category-container">
-					<Link to={`/shop/${pathCommissions}`}>
-						{image ? (
-							<>
-								<div className="klz-card-shop-category-front">
-									{imagePath &&
-										<img src={imagePath} alt="image_category" />
-									}
-								</div>
-								<div className="klz-card-shop-category-back">
-									<div className="klz-card-shop-category__title">
-										<h4>{name?.toUpperCase()}</h4>
+		<>
+		{ imagePath? (
+			<div className="klz-card-shop-category">
+				<div className="klz-card-shop-category-box">
+					<div className="klz-card-shop-category-container">
+						<Link to={`/shop/${pathCommissions}`}>
+							{image ? (
+								<>
+									<div className="klz-card-shop-category-front">
+										{imagePath &&
+											<img src={imagePath} alt="image_category" />
+										}
 									</div>
-									<div className="klz-card-shop-category__description">
-										<p>{description}</p>
+									<div className="klz-card-shop-category-back">
+										<div className="klz-card-shop-category__title">
+											<h4>{name?.toUpperCase()}</h4>
+										</div>
+										<div className="klz-card-shop-category__description">
+											<p>{description}</p>
+										</div>
 									</div>
-								</div>
-							</>
-						) : (
-							<>
-								<CardShopCategorySkeleton />
-								<div className="klz-card-shop-category-back">
-									<div className="klz-card-shop-category__title">
-										<h4>{name?.toUpperCase()}</h4>
+								</>
+							) : (
+								<>
+									<div className="klz-card-shop-category-back">
+										<div className="klz-card-shop-category__title">
+											<h4>{name?.toUpperCase()}</h4>
+										</div>
+										<div className="klz-card-shop-category__description">
+											<p>{description}</p>
+										</div>
 									</div>
-									<div className="klz-card-shop-category__description">
-										<p>{description}</p>
-									</div>
-								</div>
-
-
-							</>
-						)}
-					</Link>
+								</>
+							)}
+						</Link>
+					</div>
 				</div>
 			</div>
-		</div>
+		) : (
+			<div className="klz-card-shop-category"><CardShopCategorySkeleton/></div>
+		)
+		}
+		</>
 	)
 }
