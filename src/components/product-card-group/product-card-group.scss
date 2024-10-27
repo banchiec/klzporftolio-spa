@@ -1,0 +1,49 @@
+.klz-portfolio-group-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-top: 10rem;
+	&__container {
+		display: grid;
+		grid-auto-rows: 100px;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1.5rem;
+		grid-auto-rows: minmax(100px, auto);
+		min-height: 87rem;
+		img {
+			object-fit: cover;
+		}
+	}
+
+	&-title {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		padding: 0rem 0rem 4rem 10.4rem;
+		p {
+			color: #fff;
+			text-align: center;
+			-webkit-text-stroke-width: 0.4444444477558136;
+			-webkit-text-stroke-color: #fff;
+			font-family: 'Shadows Into Light';
+			font-size: 7.1111rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 111.648%; /* 79.394px */
+			letter-spacing: 7.111px;
+		}
+	}
+	img {
+		width: 100%;
+		min-height: 100%;
+	}
+}
+.klz-portfolio-group-card__container div:nth-child(2) {
+	grid-column: 1/3;
+	grid-row: 1/3;
+}
+
+.klz-portfolio-group-card__container div:nth-child(5) {
+	grid-column: 3;
+	grid-row: 2/4;
+}

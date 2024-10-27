@@ -2,12 +2,12 @@ import { useProductTypeList } from "../../hooks"
 import { useLocation } from "react-router-dom"
 import useSingleUpload from "../../hooks/upload"
 import { useEffect, useState } from "react"
-import { getNameForUrlProductType, getPathImageForProductTypeName, getProductTypeByName } from "./utils"
+import { getNameForUrlProductType, getPathImageForProductTypeName, getProductTypeByName } from "../commission-create-view/utils"
 import { LoaderDots } from "../../components/loader-solar-system"
 import FormCommission from "../../page/commission-order-page/components/form-commission"
-import "./commissions-create-view.scss"
+import "./stuff-you-can-buy.scss"
 
-export const CommissionsCreateView = () => {
+const StuffYouCanBuyView = () => {
 	const location = useLocation()
 	const [imagePath, setImagePath] = useState()
 	const {data, isLoading } = useProductTypeList()
@@ -69,5 +69,5 @@ export const CommissionsCreateView = () => {
 	): (<>{loader}</>)}
 		</div>
 	)
-
 }
+export default StuffYouCanBuyView

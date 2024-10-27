@@ -17,3 +17,8 @@ export const CATEGORY = {
 		printables: "printables"
 	}
 }
+
+export const PRODUCT_TYPE = {
+		PRINTABLES: "Printables",
+		STICKERS: "Stickers"
+}

@@ -4,21 +4,18 @@ import { useSingleUpload } from "../../../../hooks/upload/useSingleUpload"
 import { useEffect, useState } from "react"
 import "./card-shop-category.scss"
 import { CardShopCategorySkeleton } from "./card-shop-category-skeleton"
+import { getImagePath } from "../../../../utils/path"
 
 export const CardShopCategory = (props: CardShopCategoryType) => {
 	const { category } = props
 	const { name, description, image } = category
-	console.log(name)
-	console.log(image)
-	console.log(description)
 	const [imagePath, setImagePath] = useState()
 
-	const pathFile = `${image?.split('\\')[1]}`
-	const pathImage = `${image?.split('\\')[2]}`
+	const path = getImagePath(image) 
 
-	const path = `${pathFile}\\${pathImage}`
-
+	console.log(path);
 	const { data, isLoading } = useSingleUpload(path)
+	console.log(data);
 
 	let pathCommissions = name?.toLowerCase().split(' ').join('-')
 
@@ -73,8 +70,6 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 										<p>{description}</p>
 									</div>
 								</div>
-
-
 							</>
 						)}
 					</Link>

@@ -5,13 +5,21 @@ export interface CategoryType {
 	available?: boolean
 	productType: Array<string>
 }
+
+export interface ProductTypeType {
+  name: string,
+  description: string,
+  image: string,
+}
+
 export interface ProductType {
+  _id?: any
 	name: string;
   description: string;
   image: any;
   delivaryDays: Array<DeliveryDaysType>;
   colors: Array<string>;
-  productType: string;
+  productType: ProductTypeType;
   category: string;
   deliveryFormat: Array<DeliveryFormatType>;
   reviews: Array<ReviewType>;

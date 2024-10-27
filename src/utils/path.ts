@@ -6,7 +6,6 @@ export const  getPathImage= (name: String ) => {
 		return pathMain[0]
 	}
 
-	console.log(name)
 	if(name === "Logo/Lettering"){
 		let nameFisrt = name.toLowerCase().split('/').join('-')
 		pathCommissions = `commissions/${nameFisrt}`
@@ -22,4 +21,11 @@ export const  getPathImage= (name: String ) => {
 		pathCommissions = `commissions/${nameFisrt}`
 		return pathCommissions
 	}
+}
+
+export const getImagePath = (image: string) => {
+	const pathFolderName = `${image?.split('\\')[1]}`
+	const pathImageName = `${image?.split('\\')[2]}`
+	const pathImage = `${pathFolderName}\\${pathImageName}`
+	return pathImage
 }

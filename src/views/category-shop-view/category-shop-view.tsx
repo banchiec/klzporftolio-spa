@@ -47,8 +47,7 @@ export const CategoryShopView = (props: CategoryShopViewType) => {
 							key={productType._id}
 							category={productType}
 						/>
-					))
-					}
+					))}
 				</div>
 			</div>
 		</div>
