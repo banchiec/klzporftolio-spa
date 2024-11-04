@@ -14,6 +14,7 @@ const ProductCard = (props: ProductCardType) => {
 			setImagePath(data)
 		}
 	}, [isLoading, data]) 
+
 	return (
 		<><img src={imagePath} alt="image_category" /></>
 	)

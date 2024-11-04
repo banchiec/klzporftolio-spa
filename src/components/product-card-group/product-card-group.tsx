@@ -9,16 +9,18 @@ const ProductCardGroup = (props: ProductCardGroupTypes) => {
 	return (
 		<div className="klz-portfolio-group-card">
 			<div className="klz-portfolio-group-card-title">
-				<p>{title}</p>
+				<p >{title}</p>
 			</div>
 			<div className="klz-portfolio-group-card__container">
-				{products.map((product: {_id: string, image: string}, indice: number) =>(
-					<div>
-						<Link to={`/shop/stuff-you-can-buy/${product._id}`}>
-							<ProductCard key={indice} product={product} />
-						</Link>
-					</div>
-				))}
+				{ products.map((product: {_id: string, image: string}, indice: number) =>{
+					return (
+						<div key={product._id}>
+							<Link to={`/shop/stuff-you-can-buy/${product._id}`}>
+								<ProductCard key={indice} product={product} />
+							</Link>
+						</div>
+					)
+				})}
 			</div>
 		</div>
 	)

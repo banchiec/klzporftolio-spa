@@ -12,6 +12,12 @@ export const getFirstSixProducts = (products: Array<ProductType>, productTypeNam
 		.slice(getProductsForProductType(products, productTypeName).length-5)
 })
 
+export const getFirstSixProductForProductType = (products: Array<ProductType>) => {
+	const mappedProducts = new Set(products)
+	console.log(getProductsForProductType(products, "Printables"));
+	console.log(mappedProducts);
+	return true
+}
 export const mappedProducts = ( products: { title: string, products: Array<ProductType>}) => ({
 	title: products?.title,
 	products: products.products.map((product: any) => ({ _id: product._id, image: product.images[0].url})) 
