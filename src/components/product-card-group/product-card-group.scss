@@ -44,22 +44,24 @@
 	}
 }
 
-.klz-portfolio-group-card__container div:nth-child(5) {
-	width: 32.55%;
-}
+@media (min-width: 860px) {
+	.klz-portfolio-group-card__container div:nth-child(5) {
+		width: 32.55%;
+	}
 
-.klz-portfolio-group-card__container div:nth-child(4) {
-	width: 32.55%;
-}
+	.klz-portfolio-group-card__container div:nth-child(4) {
+		width: 32.55%;
+	}
 
-.klz-portfolio-group-card__container div:nth-child(3) {
-	width: 32.55%;
-}
+	.klz-portfolio-group-card__container div:nth-child(3) {
+		width: 32.55%;
+	}
 
-.klz-portfolio-group-card__container div:nth-child(2) {
-	width: 49.4%;
-}
+	.klz-portfolio-group-card__container div:nth-child(2) {
+		width: 49.4%;
+	}
 
-.klz-portfolio-group-card__container div:nth-child(1) {
-	width: 49.4%;
+	.klz-portfolio-group-card__container div:nth-child(1) {
+		width: 49.4%;
+	}
 }
