@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useProductsList } from "../../hooks";
 import { PRODUCT_TYPE } from "../../constants";
-import { getFirstSixProductForProductType, getFirstSixProducts, mappedProducts } from "./utils";
+import { getFirstSixProducts, mappedProducts } from "./utils";
 import ProductCardGroup from "../../components/product-card-group";
 
 export const PortfolioPage = () => {
@@ -14,8 +14,9 @@ export const PortfolioPage = () => {
 		}
 	}, [isLoading, data])
 
-	console.log(getFirstSixProductForProductType(products));
 	const productsPrintables = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.PRINTABLES)) 
+	const productsStickers = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.STICKERS)) 
+	console.log(productsStickers);
 
 	return(
 		<div className="klz-portfolio-page">
@@ -24,12 +25,8 @@ export const PortfolioPage = () => {
 				products={productsPrintables.products}
 			/>
 			<ProductCardGroup 
-				title={PRODUCT_TYPE.PRINTABLES} 
-				products={productsPrintables.products}
-			/>
-			<ProductCardGroup 
-				title={PRODUCT_TYPE.PRINTABLES} 
-				products={productsPrintables.products}
+				title={PRODUCT_TYPE.STICKERS} 
+				products={productsStickers.products}
 			/>
 		</div>
 	)

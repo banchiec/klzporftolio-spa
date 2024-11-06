@@ -31,6 +31,10 @@ export const menuHeaderDesktop = [
 		url: "/shop",
 	},
 	{
+		label: "Nuevo Producto",
+		url: "/products",
+	},
+	{
 		label: "About Me",
 		url: "/About-me",
 	},

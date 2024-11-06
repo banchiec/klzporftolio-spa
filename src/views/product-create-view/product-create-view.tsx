@@ -83,16 +83,22 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
       <div>
         <h2>New Product</h2>
       </div>
+      
+      <div>
       <div className="klz-product-create-view-container">
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+          <label>Name</label>
           <input {...register("name")} placeholder="Name" name="name" />
+
           <br />
-          <input
+          <label>Description</label>
+            <input
             {...register("description")}
-            placeholder="Description"
             name="description"
           />
           <br />
+
+          <label>Category</label>
           <Controller
             name="category"
             control={control}
@@ -102,6 +108,9 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
                 options={categoriesSelected} />
             )}
           />
+          <br />
+
+          <label>Product Type</label>
           <Controller
             name="productType"
             control={control}
@@ -111,19 +120,27 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
               {...field} options={productTypeSelected} />
             )}
           />
+          <br />
+
+          <label>Sold</label>
           <input
             {...register("sold")}
             type="number"
             placeholder="Sold"
             name="sold"
           />
+          <br />
+
+          <label>Price</label>
           <input
             {...register("price")}
-            type="number"
-            placeholder="Price"
             name="price"
+            type="number"
+            step={"0.01"}
+            placeholder="Price"
           />
           <br />
+
           <input
             type="file"
             multiple={true}
@@ -132,11 +149,12 @@ export const ProductCreateView = (props: ProductCreateViewType) => {
             })}
             onChange={handleFileInputChange}
           />
-          <button>Crear</button>
+            <button>Create</button>
         </form>
-        <div>
+        <div className="klz-product-create-view-image" >
           {imagePreview && <img src={imagePreview} alt="preview"/>}
         </div>
+      </div>
       </div>
     </div>
     </FormProvider>
