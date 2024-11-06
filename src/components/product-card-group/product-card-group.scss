@@ -23,7 +23,6 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
-		padding: 0rem 0rem 4rem 10.4rem;
 
 		p {
 			color: #fff;
@@ -44,7 +43,15 @@
 	}
 }
 
+.klz-portfolio-group-card-product-card {
+	width: 100%;
+}
 @media (min-width: 860px) {
+	.klz-portfolio-group-card {
+		&-title {
+			padding: 0rem 0rem 4rem 10.4rem;
+		}
+	}
 	.klz-portfolio-group-card__container div:nth-child(5) {
 		width: 32.55%;
 	}

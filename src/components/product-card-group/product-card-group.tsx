@@ -14,7 +14,7 @@ const ProductCardGroup = (props: ProductCardGroupTypes) => {
 			<div className="klz-portfolio-group-card__container">
 				{ products.map((product: {_id: string, image: string}, indice: number) =>{
 					return (
-						<div key={product._id}>
+						<div key={product._id} className="klz-portfolio-group-card-product-card">
 							<Link to={`/shop/stuff-you-can-buy/${product._id}`}>
 								<ProductCard key={indice} product={product} />
 							</Link>
