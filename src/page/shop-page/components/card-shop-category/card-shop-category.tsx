@@ -13,9 +13,7 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 
 	const path = getImagePath(image) 
 
-	console.log(path);
 	const { data, isLoading } = useSingleUpload(path)
-	console.log(data);
 
 	let pathCommissions = name?.toLowerCase().split(' ').join('-')
 

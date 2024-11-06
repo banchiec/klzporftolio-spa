@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import useSingleUpload from "../../../../hooks/upload"
 import { getImagePath } from "../../../../utils/path"
 import { ProductCardType } from "./types"
-import "./product-card.scss"
 
 const ProductCard = (props: ProductCardType) => {
 	const { product } = props

@@ -16,7 +16,6 @@ export const PortfolioPage = () => {
 
 	const productsPrintables = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.PRINTABLES)) 
 	const productsStickers = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.STICKERS)) 
-	console.log(productsStickers);
 
 	return(
 		<div className="klz-portfolio-page">

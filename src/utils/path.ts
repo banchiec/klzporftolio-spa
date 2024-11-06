@@ -2,7 +2,6 @@ export const  getPathImage= (name: String ) => {
 	let pathCommissions =""
 	const pathMain =  name.toLowerCase().split('/').join('-') 
 	if(pathMain.length === 1){
-		console.log(pathMain[0])
 		return pathMain[0]
 	}
 
