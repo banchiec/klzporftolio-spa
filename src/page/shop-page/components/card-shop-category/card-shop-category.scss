@@ -1,5 +1,7 @@
 .klz-card-shop-category {
+	width: 100%;
 	&-front {
+		width: 100%;
 		margin: 2rem 0;
 		min-height: 200px;
 
@@ -42,6 +44,7 @@
 	}
 
 	@media (min-width: 860px) {
+		width: 100%;
 		&-front {
 			img {
 				width: 50.6rem;
