@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import "./card-shop-category.scss"
 import { CardShopCategorySkeleton } from "./card-shop-category-skeleton"
 import { getImagePath } from "../../../../utils/path"
+import CardSkeleton from "../../../../components/cards/card-skeleton"
 
 export const CardShopCategory = (props: CardShopCategoryType) => {
 	const { category } = props
@@ -35,6 +36,7 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 			setImagePath(data)
 		}
 	}, [isLoading, data])
+	console.log(image);
 
 	return (
 		<div className="klz-card-shop-category">
@@ -44,8 +46,11 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 						{image ? (
 							<>
 								<div className="klz-card-shop-category-front">
-									{imagePath &&
+									{imagePath ? (
 										<img src={imagePath} alt="image_category" />
+									) : (
+										<CardSkeleton/>
+									)
 									}
 								</div>
 								<div className="klz-card-shop-category-back">

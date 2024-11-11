@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from "react-hook-form"
 import { useCategoriesCreate, useProductTypeList } from "../../hooks"
 import { CategoryCreateViewType } from "./types"
-import "./category-create-view.scss"
 import { CATEGORY_DEFAULT_VALUES } from "./constants"
+import "./category-create-view.scss"
 
 export const CategoryCreateView = (props: CategoryCreateViewType) => {
 	const { createCategory } = useCategoriesCreate()

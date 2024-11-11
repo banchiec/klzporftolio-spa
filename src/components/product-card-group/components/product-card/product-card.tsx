@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import useSingleUpload from "../../../../hooks/upload"
 import { getImagePath } from "../../../../utils/path"
 import { ProductCardType } from "./types"
+import CardSkeleton from "../../../cards/card-skeleton"
+import "./product-card.scss"
 
 const ProductCard = (props: ProductCardType) => {
 	const { product } = props
@@ -16,7 +18,14 @@ const ProductCard = (props: ProductCardType) => {
 	}, [isLoading, data]) 
 
 	return (
-		<><img src={imagePath} alt="image_category" className="klaus-product-card-image" /></>
+		<>
+		{ imagePath? (
+			<img src={imagePath} alt="image_category" className="klaus-product-card-image" />
+			): (
+				<CardSkeleton/>
+			) 
+		}
+		</>
 	)
 }
 export default ProductCard 
