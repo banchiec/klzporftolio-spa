@@ -1,7 +1,7 @@
 import { CardAboutMeType } from "./types";
 import AboutMeKlauz from "../../../assets/images/about-me-klauz.jpeg"
-import "./card-about-me.scss"
 import CardSkeleton from "../card-skeleton";
+import "./card-about-me.scss"
 
 const CardAboutMe = (props: CardAboutMeType) => {
 	return(

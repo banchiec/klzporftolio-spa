@@ -9,7 +9,10 @@ const ProductCard = (props: ProductCardType) => {
 	const { product } = props
 	const [imagePath, setImagePath] = useState()
 	const path = getImagePath(product?.image)
+	console.log(path);
 	const { data, isLoading } = useSingleUpload(path)
+
+	console.log(data)
 
 	useEffect(() => {
 		if (!isLoading) {

@@ -3,6 +3,7 @@ import { useProductsList } from "../../hooks";
 import { PRODUCT_TYPE } from "../../constants";
 import { getFirstSixProducts, mappedProducts } from "./utils";
 import ProductCardGroup from "../../components/product-card-group";
+import CardCollab from "../../components/cards/card-collab";
 
 export const PortfolioPage = () => {
 	const [products, setProducts] = useState([])
@@ -26,6 +27,11 @@ export const PortfolioPage = () => {
 			<ProductCardGroup 
 				title={PRODUCT_TYPE.STICKERS} 
 				products={productsStickers.products}
+			/>
+			<CardCollab 
+				image={productsPrintables?.products[0]?.image} 
+				title={"@Remedy_baltic"}
+				description={"his collaboration is not just about art; it's about community. Join the conversation, share your favorite moments, and connect with fellow fans on our social media platforms. [Illustrator's Name] and [Basketball Club Name] invite you to be a part of this vibrant community that celebrates the intersection of sports and creativity."}
 			/>
 		</div>
 	)
