@@ -1,13 +1,13 @@
 import { CardCollabType } from "./types"
-import "./card-collab.scss"
 import CardSkeleton from "../card-skeleton";
 import { useEffect, useState } from "react";
 import { getImagePath } from "../../../utils/path";
 import useSingleUpload from "../../../hooks/upload";
+import "./card-collab.scss"
 
 export const CardCollab = (props: CardCollabType) => {
 	const { image, title, description } = props
-	const  [imagePath, setImagePath] = useState()
+	const [imagePath, setImagePath] = useState()
 	const path = getImagePath(image)
 	const { data, isLoading } = useSingleUpload(path)
 
@@ -20,11 +20,12 @@ export const CardCollab = (props: CardCollabType) => {
 	return(
 		<div className="klz-portfolio-card-collab">
 			<div className="klz-portfolio-card-collab__image">
-				{imagePath ? (
+				{ imagePath ? (
 					<img src={imagePath} alt={title} />
-				):(
-					<CardSkeleton/>
-				)}
+					):(
+						<CardSkeleton/>
+					)
+				}
 			</div>
 			<div className="klz-portfolio-card-collab__text">
 				<h3>{title}</h3>
