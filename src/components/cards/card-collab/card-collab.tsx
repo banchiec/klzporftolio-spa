@@ -28,8 +28,12 @@ export const CardCollab = (props: CardCollabType) => {
 				}
 			</div>
 			<div className="klz-portfolio-card-collab__text">
-				<h3>{title}</h3>
-				<p>{description}</p>
+				<div className="klz-portfolio-card-collab__text-container">
+					<div>
+						<h3>{title}</h3>
+						<p>{description}</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	)

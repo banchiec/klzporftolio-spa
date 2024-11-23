@@ -1,8 +1,8 @@
 .klz-portfolio-card-collab {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
-	gap: 2rem;
+	align-items: flex-end;
+	gap: 4rem;
 	border: 1px solid green;
 	padding: 19.2rem 10.48rem;
 	&__image {
@@ -16,8 +16,13 @@
 	&__text {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
-		border: 1px solid green;
+		&-container {
+			div {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+		}
 
 		h3 {
 			color: white;
