@@ -19,19 +19,35 @@ export const CardCollab = (props: CardCollabType) => {
 
 	return(
 		<div className="klz-portfolio-card-collab">
-			<div className="klz-portfolio-card-collab__image">
-				{ imagePath ? (
-					<img src={imagePath} alt={title} />
-					):(
-						<CardSkeleton/>
-					)
-				}
+			<div className="klz-portfolio-card-collab__title">
+				<h2>Collabs</h2>
 			</div>
-			<div className="klz-portfolio-card-collab__text">
-				<div className="klz-portfolio-card-collab__text-container">
-					<div>
-						<h3>{title}</h3>
-						<p>{description}</p>
+			<div className="klz-portfolio-card-collab__content">
+				<div className="klz-portfolio-card-collab__image">
+					{ imagePath ? (
+						<>
+							<div>
+								<img src={imagePath} alt={title} />
+							</div>
+							<div>
+								<img src={imagePath} alt={title} />
+							</div>
+							<div>
+								<img src={imagePath} alt={title} />
+							</div>
+
+						</>
+						):(
+							<CardSkeleton/>
+						)
+					}
+				</div>
+				<div className="klz-portfolio-card-collab__text">
+					<div className="klz-portfolio-card-collab__text-container">
+						<div>
+							<h3>{title}</h3>
+							<p>{description}</p>
+						</div>
 					</div>
 				</div>
 			</div>
