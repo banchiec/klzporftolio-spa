@@ -4,6 +4,7 @@ import { useProductsList } from "../../hooks";
 import { HomeProductGroup } from "./components/home-product-group/home-product-group";
 import { ProductType } from "../../types";
 import "./home-page-view.scss";
+import { LoaderDots } from "../../components/loader-solar-system";
 
 export const HomePageView = (props: HomeViewType) => {
 	const [products, setProducts] = useState<any>([]);
@@ -25,14 +26,13 @@ export const HomePageView = (props: HomeViewType) => {
 	return (
 		<div className="klz-portfolio-home-page-view"> 
 			<div className="klz-portfolio-home-page-view__title">
-				<h2 >Hi. I’m Klaus Johannes Aksberg.<br/>
-				An Artist from Estonia</h2>
+				<h2 >Hi. I’m Klaus Johannes Aksberg.<br/> An Artist from Estonia</h2>
 			</div>
 			<div className="klz-portfolio-home-page-view__container-group">
 				{products ? (
 					<HomeProductGroup  products={productsGroup}/>
 				): (
-					<div>Loading...</div>
+					<LoaderDots/>
 				)}
 			</div>
 		</div>
