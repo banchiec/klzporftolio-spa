@@ -1,7 +1,6 @@
 .klz-shop-page {
 	width: auto;
-	margin: 0 auto;
-	padding-bottom: 5rem;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -18,7 +17,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: 4.3rem 10.8rem 0rem 10.8rem;
+			padding: 4rem 10rem 0rem 10rem;
 			gap: 5rem;
 		}
 	}
