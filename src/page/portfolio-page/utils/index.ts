@@ -6,9 +6,9 @@ export const getProductsForProductType = (products: Array<ProductType>, productT
 	)) 
 ))
 
-export const getFirstSixProducts = (products: Array<ProductType>, productTypeName: string) => ({
+export const getFirstProducts = (products: Array<ProductType>, productTypeName: string, count: number) => ({
 	title : productTypeName,
-	products : getProductsForProductType(products, productTypeName).slice(0, 5)
+	products : getProductsForProductType(products, productTypeName).slice(0, count)
 })
 
 export const mappedProducts = ( products: { title?: string, products: Array<ProductType>}) => ({

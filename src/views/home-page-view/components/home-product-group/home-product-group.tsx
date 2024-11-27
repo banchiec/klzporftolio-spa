@@ -8,7 +8,7 @@ export const HomeProductGroup = (props: HomeProductGroupTypes) => {
     return (
 		<div className="klz-portfolio-product-home-group">
 			<div className="klz-portfolio-product-home-group__container"> 
-				{products?.products.map((product: any, indice: number) =>{
+				{products?.map((product: any, indice: number) =>{
 					return (
 						<div key={product._id} className="klz-portfolio-product-home-group__container-product">
 							<Link to={`/shop/stuff-you-can-buy/${product._id}`}>

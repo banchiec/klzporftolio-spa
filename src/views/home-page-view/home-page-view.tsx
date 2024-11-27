@@ -2,34 +2,39 @@ import { useEffect, useState } from "react";
 import { HomeViewType } from "./types"
 import { useProductsList } from "../../hooks";
 import { HomeProductGroup } from "./components/home-product-group/home-product-group";
-import { mappedProducts } from "../../page/portfolio-page/utils";
+import { ProductType } from "../../types";
 import "./home-page-view.scss";
 
 export const HomePageView = (props: HomeViewType) => {
- 
- const [products, setProducts] = useState([]);
- const {data, isLoading  } = useProductsList(); 
+	const [products, setProducts] = useState<any>([]);
+	const {data, isLoading  } = useProductsList(); 
 
- useEffect(() => {
+	useEffect(() => {
 	if(!isLoading) {
 		setProducts(data);
 	}
- }, [data, isLoading]); 
+	}, [data, isLoading]); 
 
-
-const getAllProducts = mappedProducts({products: products}); 
+	const productsGroup: Array<{_id: number, image: string}> = products?.map((product:ProductType) => (
+		{
+			_id: product._id, 
+			image: product.images[0].url
+		}
+	)).slice(0,11)
 
 	return (
-		<>  
-			<div>
-				<h1 className="home-page-view-title">Hi. I’m Klaus Johannes Aksberg.<br/>
-				An Artist from Estonia</h1>
+		<div className="klz-portfolio-home-page-view"> 
+			<div className="klz-portfolio-home-page-view__title">
+				<h2 >Hi. I’m Klaus Johannes Aksberg.<br/>
+				An Artist from Estonia</h2>
 			</div>
-			{ products ? (
-				<HomeProductGroup  products={products? getAllProducts : undefined}/>
-			): (
-				<div>Loading...</div>
-			)}
-		</>
+			<div className="klz-portfolio-home-page-view__container-group">
+				{products ? (
+					<HomeProductGroup  products={productsGroup}/>
+				): (
+					<div>Loading...</div>
+				)}
+			</div>
+		</div>
 	)
 }
