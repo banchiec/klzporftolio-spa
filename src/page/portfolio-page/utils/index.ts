@@ -11,7 +11,7 @@ export const getFirstSixProducts = (products: Array<ProductType>, productTypeNam
 	products : getProductsForProductType(products, productTypeName).slice(0, 5)
 })
 
-export const mappedProducts = ( products: { title: string, products: Array<ProductType>}) => ({
+export const mappedProducts = ( products: { title?: string, products: Array<ProductType>}) => ({
 	title: products?.title,
 	products: products.products.map((product: any) => ({ _id: product._id, image: product.images[0].url})) 
 })

@@ -6,7 +6,9 @@ import ProductCardGroup from "../../components/product-card-group";
 
 export const PortfolioPage = () => {
 	const [products, setProducts] = useState([])
-	const {data, isLoading  } = useProductsList()
+	const {data, isLoading  } = useProductsList() 
+
+	console.log(products, "products");
 
 	useEffect(() => {
 		if(!isLoading){
@@ -15,7 +17,7 @@ export const PortfolioPage = () => {
 	}, [isLoading, data])
 
 	const productsPrintables = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.PRINTABLES)) 
-	const productsStickers = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.STICKERS)) 
+	const productsStickers = mappedProducts(getFirstSixProducts(products, PRODUCT_TYPE.STICKERS))  
 
 	return(
 		<div className="klz-portfolio-page">

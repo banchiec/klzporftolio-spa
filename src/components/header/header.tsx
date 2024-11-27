@@ -24,7 +24,7 @@ const Header = (props: HeaderType) => {
 			<div className="klz-header">
 				<div className="klz-header__desktop">
 					<div className="klz-header__desktop__logo">
-						<img src={logo} alt="image__logo"/>
+					<Link to={"/"}><img src={logo} alt="image__logo"/></Link>
 					</div>
 					<div className="klz-header__desktop__menu">
 						<ul>

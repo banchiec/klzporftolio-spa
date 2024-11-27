@@ -19,6 +19,7 @@ const ProductCard = (props: ProductCardType) => {
 
 	return (
 		<>
+
 		{ imagePath? (
 			<img src={imagePath} alt="image_category" className="klaus-product-card-image" />
 			): (

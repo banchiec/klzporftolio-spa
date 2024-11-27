@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import Layout from "../components/layout";
 // import NotFoundPage from "pages/not-found-page/NotFoundPage";
-import { Home } from '../page/home';
+import { HomePage } from '../page/home-page';
 import AboutMePage from '../page/about-me-page';
 import PortfolioPage from '../page/portfolio-page';
 import ShopPage from '../page/shop-page';
@@ -18,7 +18,7 @@ export const mainRoutes = {
   element: <Layout />,
   children: [
     {path: '*', element: <Navigate to='/404' />},
-    {path: '/', element: <Home/>},
+    {path: '/', element: <HomePage/>},
     {path: '/product-type', element: <ProductTypeCreateView/>},
     {path: '/products', element: <ProductCreateView/>},
     {path: '/categories', element: <CategoryCreateView/>},
