@@ -21,11 +21,15 @@ const getAllProducts = mappedProducts({products: products});
 
 	return (
 		<>  
-		<div>
-			<h1 className="home-page-view-title">Hi. I’m Klaus Johannes Aksberg.<br/>
-			An Artist from Estonia</h1>
-		</div>
-		<HomeProductGroup  products={products ? getAllProducts : undefined}/>
+			<div>
+				<h1 className="home-page-view-title">Hi. I’m Klaus Johannes Aksberg.<br/>
+				An Artist from Estonia</h1>
+			</div>
+			{ products ? (
+				<HomeProductGroup  products={products? getAllProducts : undefined}/>
+			): (
+				<div>Loading...</div>
+			)}
 		</>
 	)
 }

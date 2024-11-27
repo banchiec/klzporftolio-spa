@@ -15,3 +15,4 @@ export const mappedProducts = ( products: { title?: string, products: Array<Prod
 	title: products?.title,
 	products: products.products.map((product: any) => ({ _id: product._id, image: product.images[0].url})) 
 })
+
