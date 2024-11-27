@@ -1,3 +1,3 @@
-export interface HomeType {
+export interface HomePageType {
 
 }

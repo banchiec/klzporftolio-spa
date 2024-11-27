@@ -3,11 +3,11 @@ import { HomeViewType } from "./types"
 import { useProductsList } from "../../hooks";
 import { HomeProductGroup } from "./components/home-product-group/home-product-group";
 import { ProductType } from "../../types";
-import "./home-page-view.scss";
 import { LoaderDots } from "../../components/loader-solar-system";
+import "./home-page-view.scss";
 
 export const HomePageView = (props: HomeViewType) => {
-	const [products, setProducts] = useState<any>([]);
+	const [products, setProducts] = useState<Array<ProductType>>([]);
 	const {data, isLoading  } = useProductsList(); 
 
 	useEffect(() => {

@@ -2,9 +2,9 @@ import { FooterType } from "./types"
 import instagram from "../../assets/images/instagram.png"
 import pinterest from "../../assets/images/pinterest.png"
 import linkedIn from "../../assets/images/linkedin.png"
-import "./footer.scss"
 import ButtonCustom from "../buttons/button-custom"
 import contactme from "../../assets/images/contactme.png"
+import "./footer.scss"
 
 const Footer = ( props: FooterType) => {
 
