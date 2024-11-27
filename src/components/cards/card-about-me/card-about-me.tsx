@@ -1,7 +1,7 @@
 import { CardAboutMeType } from "./types";
 import AboutMeKlauz from "../../../assets/images/about-me-klauz.jpeg"
-import "./card-about-me.scss"
 import CardSkeleton from "../card-skeleton";
+import "./card-about-me.scss"
 
 const CardAboutMe = (props: CardAboutMeType) => {
 	return(
@@ -13,7 +13,9 @@ const CardAboutMe = (props: CardAboutMeType) => {
 				</div>
 				<section className="klz-about-me-card-main">
 					{AboutMeKlauz ? (
-						<img src={AboutMeKlauz} alt="About Me"/>
+						<div className="klz-about-me-card-main__container">
+							<img src={AboutMeKlauz} alt="About Me"/>
+						</div>
 					):(
 						<CardSkeleton/>
 					)}
