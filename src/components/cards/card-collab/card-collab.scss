@@ -73,9 +73,12 @@
 	@media (min-width: 860px) {
 		.klz-portfolio-card-collab {
 			&__content {
-				padding: 4rem;
+				padding: 4rem 6rem;
 				display: flex;
 				flex-direction: row;
+			}
+			&__title {
+				padding: 8rem 6rem 0rem 6rem;
 			}
 
 			&__image {
