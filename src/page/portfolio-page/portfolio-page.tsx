@@ -9,8 +9,6 @@ export const PortfolioPage = () => {
 	const [products, setProducts] = useState([])
 	const {data, isLoading  } = useProductsList() 
 
-	console.log(products, "products");
-
 	useEffect(() => {
 		if(!isLoading){
 			setProducts(data) 

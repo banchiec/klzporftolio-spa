@@ -36,7 +36,6 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 			setImagePath(data)
 		}
 	}, [isLoading, data])
-	console.log(image);
 
 	return (
 		<div className="klz-card-shop-category">
