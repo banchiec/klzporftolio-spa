@@ -35,7 +35,6 @@ export const CardCollab = (props: CardCollabType) => {
 							<div>
 								<img src={imagePath} alt={title} />
 							</div>
-
 						</>
 						):(
 							<CardSkeleton/>

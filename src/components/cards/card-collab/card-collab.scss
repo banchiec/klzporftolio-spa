@@ -5,7 +5,6 @@
 	justify-content: center;
 	gap: 1rem;
 
-	//padding: 19.2rem 10.48rem;
 	&__title {
 		display: flex;
 		flex-direction: row;
@@ -70,53 +69,62 @@
 			line-height: 193.688%; /* 34.433px */
 		}
 	}
+
 	@media (min-width: 860px) {
 		.klz-portfolio-card-collab {
 			&__content {
-				padding: 4rem 6rem;
 				display: flex;
 				flex-direction: row;
+				justify-content: center;
+				padding: 4rem 6rem;
 			}
+
 			&__title {
 				padding: 8rem 6rem 0rem 6rem;
 			}
 
 			&__image {
-				gap: 2rem;
+				width: 61%;
 				display: flex;
-				height: 44.2667rem;
 				flex-direction: row;
+				height: 44.2667rem;
 				position: relative;
-				div {
-					img {
-					}
-				}
+				gap: 2rem;
+			}
+			&__text {
+				width: 39%;
 			}
 		}
+
 		.klz-portfolio-card-collab__image div:nth-child(1) {
-			width: 46.0444rem;
+			position: absolute;
+			width: 67.5%;
 			img {
-				width: 46.0444rem;
-				height: 44.2667rem;
+				width: 100%;
+				height: 100%;
 			}
 		}
 
 		.klz-portfolio-card-collab__image div:nth-child(2) {
-			width: 21rem;
+			position: absolute;
+			width: 31.3%;
+			height: 59.3%;
+			right: 0;
 			img {
-				width: 21rem;
-				height: 25rem;
+				width: 100%;
+				height: 100%;
 			}
 		}
+
 		.klz-portfolio-card-collab__image div:nth-child(3) {
 			position: absolute;
-			width: 30.111rem;
-			height: 17.2rem;
+			width: 44.9%;
+			height: 41.8%;
 			bottom: 0;
 			right: 0;
 			img {
-				width: 30.111rem;
-				height: 17.2rem;
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}
