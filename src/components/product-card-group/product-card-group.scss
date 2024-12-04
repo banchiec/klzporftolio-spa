@@ -30,7 +30,7 @@
 			-webkit-text-stroke-width: 0.4444444477558136;
 			-webkit-text-stroke-color: #fff;
 			font-family: 'Shadows Into Light';
-			font-size: 7.1111rem;
+			font-size: 4.5rem;
 			font-style: normal;
 			font-weight: 400;
 			line-height: 111.648%; /* 79.394px */
@@ -50,6 +50,9 @@
 	.klz-portfolio-group-card {
 		padding-top: 10rem;
 		&-title {
+			p {
+				font-size: 7.1rem;
+			}
 			padding: 0rem 0rem 4rem 10.4rem;
 		}
 	}
