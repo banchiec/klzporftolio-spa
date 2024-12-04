@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { HomeProductGroupTypes } from "../../../../components/product-card-group/types"
-import "../home-product-group/home-product-group.scss"
 import { ProductCard } from "../../../../components/product-card-group/components";
+import "../home-product-group/home-product-group.scss"
 
 export const HomeProductGroup = (props: HomeProductGroupTypes) => {
 	const {products} = props; 

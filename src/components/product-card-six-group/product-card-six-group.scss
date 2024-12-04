@@ -22,7 +22,7 @@
 	}
 	&__container {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(1, 1fr);
 		gap: 2rem;
 		margin-bottom: 4rem;
 		img {
@@ -42,6 +42,9 @@
 			h2 {
 				font-size: 7.11rem;
 			}
+		}
+		&__container {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 	.klz-portfolio-product-card-six-group__container div:nth-child(1) {
