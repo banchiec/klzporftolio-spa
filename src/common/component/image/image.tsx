@@ -3,13 +3,8 @@ import { ImageTypes } from "./types"
 
 const Image = (props: ImageTypes) =>{
 	const {srcImage, altImage} = props
-	console.log(srcImage);
-	return ( srcImage? 
-		( 
-			<img src={srcImage} alt={altImage} className="klaus-product-card-image" />)
-		: ( 
-			<SkeletonImage/> 
-		)
+	return ( srcImage? ( <img src={srcImage} alt={altImage} className="klaus-product-card-image" />)
+		: (<SkeletonImage/> )
 	)
 } 
 export default Image

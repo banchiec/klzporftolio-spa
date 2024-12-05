@@ -7,6 +7,7 @@ interface CategoryType {
 }
 export interface CardShopCategoryType {
 	category: CategoryType 
+	title?: string
 	// description: string
 	// image: any 
 	// name: string

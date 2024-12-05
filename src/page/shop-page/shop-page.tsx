@@ -20,6 +20,7 @@ export const ShopPage = (props: ShopPageType) => {
 			<CardShopCategory
 				key={category._id}
 				category={category}
+				title={category.name}
 			/>
 		)
 	}

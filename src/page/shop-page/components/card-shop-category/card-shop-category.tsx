@@ -8,7 +8,8 @@ import { getImagePath } from "../../../../utils/path"
 import "./card-shop-category.scss"
 
 export const CardShopCategory = (props: CardShopCategoryType) => {
-	const { category } = props
+	const { category, title} = props
+	console.log("object");
 	const { name, description, image } = category
 	const [imagePath, setImagePath] = useState()
 
@@ -43,21 +44,14 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 				<div className="klz-card-shop-category-container">
 					<Link to={`/shop/${pathCommissions}`}>
 					<RenderIf condition={!!image}>
-							<>
-								<div className="klz-card-shop-category-front">
-									<RenderIf condition={imagePath!}>
-										<Image srcImage={imagePath!} altImage={imagePath!}/>
-									</RenderIf>
-								</div>
-								<div className="klz-card-shop-category-back">
-									<div className="klz-card-shop-category__title">
-										<h4>{name?.toUpperCase()}</h4>
-									</div>
-									<div className="klz-card-shop-category__description">
-										<p>{description}</p>
-									</div>
-								</div>
-							</>
+						<div className="klz-card-shop-category-front">
+							<div className="klz-card-shop-category-front__title">
+								<p>{category.name.toUpperCase()}</p>
+							</div>
+							<RenderIf condition={imagePath!}>
+								<Image srcImage={imagePath!} altImage={imagePath!} title={title}/>
+							</RenderIf>
+						</div>
 					</RenderIf>
 					</Link>
 				</div>

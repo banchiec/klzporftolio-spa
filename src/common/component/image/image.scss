@@ -1,0 +1,23 @@
+.klz-image {
+	position: relative;
+	&__title {
+		display: none;
+	}
+	@media (min-width: 860px) {
+		&__title {
+			position: relative;
+			border: 4px solid green;
+			p {
+				position: absolute;
+				color: #fff;
+				text-align: center;
+				font-family: 'Nunito Sans';
+				font-size: 32px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 111.648%; /* 35.727px */
+				letter-spacing: 3.2px;
+			}
+		}
+	}
+}
