@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import useSingleUpload from "../../../../hooks/upload"
 import { getImagePath } from "../../../../utils/path"
+import { RenderIf } from "../../../../common/control"
 import { ProductCardType } from "./types"
-import CardSkeleton from "../../../cards/card-skeleton"
+import Image from "../../../../common/component/image/image"
 import "./product-card.scss"
 
 const ProductCard = (props: ProductCardType) => {
@@ -18,15 +19,9 @@ const ProductCard = (props: ProductCardType) => {
 	}, [isLoading, data]) 
 
 	return (
-		<>
-
-		{ imagePath? (
-			<img src={imagePath} alt="image_category" className="klaus-product-card-image" />
-			): (
-				<CardSkeleton/>
-			) 
-		}
-		</>
+		<RenderIf condition={imagePath!}>
+			<Image srcImage={imagePath!} altImage={"image"}/>
+		</RenderIf>
 	)
 }
 export default ProductCard 

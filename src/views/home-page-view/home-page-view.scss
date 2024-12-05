@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	padding-top: 14rem;
+	padding-top: 2rem;
 	&__title {
 		padding: 0rem 2rem;
 		h2 {
@@ -15,5 +15,8 @@
 			line-height: 110%; /* 78.222px */
 			letter-spacing: 7.111px;
 		}
+	}
+	@media (min-width: 860px) {
+		padding-top: 12rem;
 	}
 }
