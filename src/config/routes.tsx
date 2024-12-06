@@ -11,6 +11,7 @@ import ProductCreateView from '../views/product-create-view';
 import { CategoryShopView } from '../views/category-shop-view';
 import { CommissionsCreateView } from '../views/commission-create-view';
 import { StuffYouCanBuyView } from '../views/stuff-you-can-buy-view';
+import { CartPage } from '../page/cart-page/cart-page';
 
 
 export const mainRoutes = {
@@ -23,7 +24,8 @@ export const mainRoutes = {
     {path: '/products', element: <ProductCreateView/>},
     {path: '/categories', element: <CategoryCreateView/>},
     {path: '/about-me', element: <AboutMePage/>},
-    {path: '/portfolio', element: <PortfolioPage/>},
+    {path: '/portfolio', element: <PortfolioPage/>}, 
+    {path: "/cart", element: <CartPage/>},
     {path: '/shop', element: <ShopPage/>},
     // {path: '/shop/stuff-you-can-buy', element: <AboutMePage/>},
     {path: '/shop/:category', element: <CategoryShopView/>},

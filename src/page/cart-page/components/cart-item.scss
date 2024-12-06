@@ -1,0 +1,76 @@
+.cart-item {
+    color: white;
+    display: flex;
+    border: 0.89px solid #FFFFFF;
+    flex-direction: column;
+    font-size: 1.8rem; 
+
+
+    &_container {
+        border-bottom: 2px solid white;
+        display: flex;
+        padding: 2px;
+        &__content {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+    }
+
+
+  
+    img {
+        max-width: 100%; /* Ensure the image width doesn't exceed the container */
+        max-height: 100px; /* Limit the height to avoid oversized images */
+        width: auto; /* Maintain aspect ratio */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: contain; /* Ensures the image is fully visible */
+        display: block; /* Removes any inline spacing around the image */
+        margin: 0 auto; /* Centers the image horizontally if needed */
+    }
+ 
+    &_name {
+        font-size: 1.5rem;
+        font-family: "Shadows Into Light";
+        font-weight: 400;
+    } 
+
+    &__delete-item {
+        width: 16px;
+    }
+
+    &_price {
+        font-size: 1.5rem;
+        font-family: "Nunito Sans";
+    }
+
+    &_total {
+       font-size: 1.5rem;
+       font-family: "Nunito Sans";
+    }
+ 
+    &_group-top {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        justify-content: space-between;
+    }
+    &_group-bottom {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2rem;
+        gap: 10px;
+        padding-right: 1.5rem;
+        align-items: center;
+        padding-left: 1.7rem;
+        div {
+         display: flex;
+         font-size: 1.5rem;
+         gap: 5px;
+         align-items: center;
+        }
+        span {
+            font-family: "Nunito Sans";
+        }
+    }
+}
