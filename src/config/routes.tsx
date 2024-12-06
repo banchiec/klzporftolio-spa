@@ -31,7 +31,6 @@ export const mainRoutes = {
     {path: '/shop/:category', element: <CategoryShopView/>},
     {path: '/shop/commissions/:productType', element: <CommissionsCreateView/>},
     {path: '/shop/stuff-you-can-buy/:productId', element: <StuffYouCanBuyView/>},
-    // {path: '/shop/commissions/logo-lettering', element: <CommissionsOrderPage />},
     // {path: '/shop/commissions/cover', element: <CommissionsOrderPage />},
     // {path: '/shop/commissions/cartoon-illustration', element: <CommissionsOrderPage />},
     // {path: '404', element: <NotFoundPage/>},

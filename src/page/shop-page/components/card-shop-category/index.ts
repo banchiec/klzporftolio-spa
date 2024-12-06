@@ -1,3 +1,3 @@
-import { CardShopCategory } from "./card-shop-category";
+import { CardShopType } from "./card-shop-type";
 
-export default CardShopCategory
+export default CardShopType
