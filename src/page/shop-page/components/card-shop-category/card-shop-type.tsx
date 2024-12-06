@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { CardShopCategoryType } from "./types"
+import { CardShopTypeTypes } from "./types"
 import { useSingleUpload } from "../../../../hooks/upload/useSingleUpload"
 import { RenderIf } from "../../../../common/control"
-import Image from "../../../../common/component/image/image"
 import { getImagePath } from "../../../../utils/path"
-import "./card-shop-category.scss"
+import RotatingCard from "../../../../common/component/card/rotating-card"
+import "./card-shop-type.scss"
 
-export const CardShopCategory = (props: CardShopCategoryType) => {
+export const CardShopType= (props: CardShopTypeTypes) => {
 	const { category, title} = props
-	console.log("object");
 	const { name, description, image } = category
 	const [imagePath, setImagePath] = useState()
 
@@ -39,22 +38,16 @@ export const CardShopCategory = (props: CardShopCategoryType) => {
 	}, [isLoading, data])
 
 	return (
-		<div className="klz-card-shop-category">
-			<div className="klz-card-shop-category-box">
-				<div className="klz-card-shop-category-container">
-					<Link to={`/shop/${pathCommissions}`}>
-					<RenderIf condition={!!image}>
-						<div className="klz-card-shop-category-front">
-							<div className="klz-card-shop-category-front__title">
-								<p>{category.name.toUpperCase()}</p>
-							</div>
-							<RenderIf condition={imagePath!}>
-								<Image srcImage={imagePath!} altImage={imagePath!} title={title}/>
-							</RenderIf>
-						</div>
+		<div className="klz-card-shop-type">
+			<div className="klz-card-shop-type__container">
+				<Link to={`/shop/${pathCommissions}`}>
+					<RenderIf condition={!!imagePath}>
+						<RenderIf condition={imagePath!}>
+							<RotatingCard image={imagePath!} title={title!} description={description}/>
+							<h3>{title?.toUpperCase()}</h3>
+						</RenderIf>
 					</RenderIf>
-					</Link>
-				</div>
+				</Link>
 			</div>
 		</div>
 	)

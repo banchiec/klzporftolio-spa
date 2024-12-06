@@ -1,3 +1,5 @@
+import { ProductTypeType } from "../../../../types"
+
 interface CategoryType {
 	name: string
 	description: string
@@ -5,8 +7,8 @@ interface CategoryType {
 	available?: boolean
 	productType: any[]
 }
-export interface CardShopCategoryType {
-	category: CategoryType 
+export interface CardShopTypeTypes {
+	category: CategoryType | ProductTypeType 
 	title?: string
 	// description: string
 	// image: any 

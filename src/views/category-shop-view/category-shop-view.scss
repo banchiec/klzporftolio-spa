@@ -4,10 +4,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	overflow: unset;
 	height: 90vh;
+	position: relative;
 	&-container {
+		position: absolute;
 		padding: 1.7rem 3rem;
 	}
 	&__header {
@@ -27,14 +28,24 @@
 		}
 	}
 
+	&__data {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		h3 {
+			font-size: 2.8rem;
+		}
+	}
+
 	@media (min-width: 860px) {
+		justify-content: center;
 		&__header {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: flex-start;
 			margin-top: 4.5rem;
-			margin-bottom: 1.5rem;
+			margin-bottom: 4.5rem;
 			&__question {
 				display: flex;
 				flex-direction: row;
@@ -61,14 +72,15 @@
 			}
 		}
 		&__data {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: row;
-			gap: 6rem;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
 			img {
 				width: 31.2rem;
 				height: 31.2rem;
+			}
+			h3 {
+				font-size: 2rem;
 			}
 		}
 	}

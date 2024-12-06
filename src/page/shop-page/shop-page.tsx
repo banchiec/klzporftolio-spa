@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useCategoriesList } from "../../hooks"
 import { ShopPageType } from "./types"
-import CardShopCategory from "./components/card-shop-category"
 import { For, RenderIf } from "../../common/control"
+import CardShopType from "./components/card-shop-category"
 import "./shop-page.scss"
 
 export const ShopPage = (props: ShopPageType) => {
@@ -17,7 +17,7 @@ export const ShopPage = (props: ShopPageType) => {
 
 	const renderCardCategory = (category:any) =>{
 		return(
-			<CardShopCategory
+			<CardShopType
 				key={category._id}
 				category={category}
 				title={category.name}
