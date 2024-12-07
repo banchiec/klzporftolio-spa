@@ -1,4 +1,5 @@
 import "./cart-item.scss"
+import Image from "../../../common/component/image/image";
 
 export const CartItem = () => {
     const products = [{
@@ -19,21 +20,22 @@ export const CartItem = () => {
   return (
     <div className="cart-item">   
     {products.map((item) => (
-      <>
-      <div className="cart-item_container">
-       <img className="cart-item_img" src={item.image} alt={item.name}/>
-       <div className="cart-item_container__content">
+      <> 
+       <div className="cart-item_container">
        <div className="cart-item_group-top">
+        <div>
+       <Image srcImage={item.image} />
         <p className="cart-item_name">{item.name}</p>
-        <span className="cart-item_price">{item.price}€</span>
+        </div>
        </div>
        <div className="cart-item_group-bottom">
         <div>
-        <span className="less">
+        <span className="cart-item_price">{item.price}€</span>
+        <span className="cart-item_less">
           -
         </span>
         <span className="cart-item_quantity">{item.quantity}</span>
-        <span className="more">
+        <span className="cart-item_more">
           +
         </span>
         <svg className="cart-item__delete-item" xmlns="http://www.w3.org/2000/svg" width="21" height="26" viewBox="0 0 21 26" fill="none">
@@ -43,7 +45,6 @@ export const CartItem = () => {
         <p className="cart-item_total">{item.total}€</p>
         </div>
         </div>
-       </div>
       </>
     ))}
     </div>

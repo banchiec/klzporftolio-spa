@@ -1,3 +1,54 @@
 .klz-cart-page {
    padding: 1.9rem;
+
+   &_subtotal-container {
+    margin-top: 1rem;
+    color: #FFFFFF;  
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    justify-self: end;
+   }
+   &_subtotal {
+    font-size: 1.6rem;
+    text-align: end;
+    color: #FFFFFF; 
+    font-family: "Nunito Sans";
+   }
+   &_conditions {
+     font-family: "Nunito Sans";
+     text-align: end;
+     font-weight: 400;
+     font-size: 1.1rem;
+   }
+   &_checkout-button {
+    width: 120px;
+    height: 30px;
+    border-radius: 8px;
+    font-weight: 800;
+    align-self: flex-end;
+   }
+}  
+
+
+@media(max-width: 800px) {
+    .klz-cart-page {
+        &_subtotal {
+            font-size: 2.5rem;
+        }
+        &_conditions{
+            font-size: 1.5rem;
+        }
+        &_checkout-button {
+            width: 147px;
+            height: 41px;
+        }
+    } 
+}
+
+
+@media(min-width: 800px) {
+    .klz-cart-page {
+        padding: 15rem; 
+    }
 }

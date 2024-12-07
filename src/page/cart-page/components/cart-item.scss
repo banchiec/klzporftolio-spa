@@ -4,17 +4,16 @@
     border: 0.89px solid #FFFFFF;
     flex-direction: column;
     font-size: 1.8rem; 
-
+    font-weight: 700;
 
     &_container {
         border-bottom: 2px solid white;
-        display: flex;
-        padding: 2px;
-        &__content {
-            display: flex;
-            align-items: center;
-            padding-left: 10px;
-        }
+        display: flex; 
+        align-items: center;
+        padding-left: 5px;
+        padding: 10px;
+        width: 100%;  
+        justify-content: space-between;
     }
 
 
@@ -26,13 +25,13 @@
         height: auto; /* Maintain aspect ratio */
         object-fit: contain; /* Ensures the image is fully visible */
         display: block; /* Removes any inline spacing around the image */
-        margin: 0 auto; /* Centers the image horizontally if needed */
     }
  
     &_name {
         font-size: 1.5rem;
         font-family: "Shadows Into Light";
         font-weight: 400;
+        padding-left: 20px;
     } 
 
     &__delete-item {
@@ -41,7 +40,7 @@
 
     &_price {
         font-size: 1.5rem;
-        font-family: "Nunito Sans";
+        font-family: "Nunito Sans"; 
     }
 
     &_total {
@@ -53,14 +52,19 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        justify-content: space-between;
+        justify-content: space-between; 
+
+        div {
+            display: flex;
+            align-items: center;
+        }
     }
     &_group-bottom {
         display: flex;
         justify-content: space-between;
         padding-left: 2rem;
-        gap: 10px;
         padding-right: 1.5rem;
+        gap: 19rem;
         align-items: center;
         padding-left: 1.7rem;
         div {
@@ -70,7 +74,66 @@
          align-items: center;
         }
         span {
-            font-family: "Nunito Sans";
+            font-family: "Nunito Sans"; 
         }
+    }      
+
+    @media(min-width: 1000px) {
+        .cart-item {
+            &_name {
+                font-size: 3.556rem ;
+            }
+            &_total {
+                font-size: 3rem;
+            }
+            &_price {
+                font-size: 3rem;
+                padding-right: 7rem;
+            }
+            &_quantity {
+                font-size: 2.2rem;
+            }
+            &_more {
+                padding-right: 1.7rem;
+            }
+        }
+    }
+
+    @media(max-width: 1000px) {
+        .cart-item_group-bottom{
+            gap: 3rem;
+        }
+        .cart-item {
+            &_price {
+                padding-right: 70px;
+                font-size: 2rem;
+            }
+            &_name {
+                font-size: 2rem;
+            } 
+            &_less, &_more , &_total, &_quantity{
+                font-size: 2rem;
+            }
+            
+        }
+    }
+
+    @media(max-width:700px) {
+        .cart-item {
+            &_name,&_price, &_total, &_quantity {
+                font-size: 1.4rem;
+            } 
+            &_price {
+                padding-right: 10px;
+            }
+        }
+        .cart-item__delete-item {
+            width: 12px;
+        } 
+
+        .cart-item_group-bottom {
+            gap: 10px;
+        }
+
     }
 }
