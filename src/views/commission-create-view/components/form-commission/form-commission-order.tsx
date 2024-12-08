@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { FormCommissionType } from "./types"
 import { 
-	COMMISSIONS_DEFAULT_VALUES, 
 	COMMISSIONS_INPUTS_DEFAULT_NAMES, 
 	DEFAULT_COMMISSIONS_SELECT_VALUE, 
 	FORM_COMMISSIONS_SELECTED_VALUES 
@@ -9,14 +8,14 @@ import {
 import { CustomSelect } from "../../../../components/custom-select"
 import help from "../../../../assets/images/help.png"
 import cart from "../../../../assets/images/cart_icon.png"
-import { FORM_COMMISSIONS } from "../../constants"
 import SelectColor from "../../../../components/select-color/select-color"
 import { useCategoriesList, useProductsCreate } from "../../../../hooks"
+import { FORM_COMMISSIONS } from "../../constants"
 import "../../commissions-order-page.scss"
 
 
 
-const FormCommission = (props: FormCommissionType) => {
+const FormCommissionOrder = (props: FormCommissionType) => {
 	const {productType} = props
 	const [priceCommission, setPriceCommission] = useState(50)
   const { createProduct } = useProductsCreate();
@@ -63,7 +62,6 @@ const FormCommission = (props: FormCommissionType) => {
 	return(
 		<div className="klz-commissions-order__form-body">
 				<form onSubmit={onSubmit}>
-
 					<CustomSelect 
 						name={COMMISSIONS_INPUTS_DEFAULT_NAMES.deliveryDays}
 						label="Delivery Days"
@@ -72,14 +70,7 @@ const FormCommission = (props: FormCommissionType) => {
 						setOption={setDeliveryDays}
 						customSelectRef={deliveryDaysRef}
 					/>
-
-					<SelectColor 
-						setColors={setColors} 
-						colors={colors} 
-						label={"Choose your color palette"} 
-						options = {FORM_COMMISSIONS_SELECTED_VALUES.colors}
-					/>
-
+					<SelectColor setColors={setColors} colors={colors} label={"Choose your color palette"} options = {FORM_COMMISSIONS_SELECTED_VALUES.colors}/>
 					<div className="klz-commissions-order__form-body__textarea">
 						<div className="klz-commissions-order__form-body__textarea__label">
 							<span>Insert you text</span>
@@ -91,7 +82,6 @@ const FormCommission = (props: FormCommissionType) => {
 							defaultValue={description}
 						/>
 					</div>
-
 					<CustomSelect 
 						name={COMMISSIONS_INPUTS_DEFAULT_NAMES.revisions}
 						label="Revisions"
@@ -131,4 +121,4 @@ const FormCommission = (props: FormCommissionType) => {
 		</div>
 	)
 }
-export default React.memo(FormCommission)
+export default React.memo(FormCommissionOrder)
