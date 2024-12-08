@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ProductType } from "../../../../types";
 import { For } from "../../../../common/control";
 import CartItem from "../cart-item/cart-item";
-import "./cart-list-item.scss"
 
 const products = [{
     image: "cart-item.jpeg", // Mock item image URL

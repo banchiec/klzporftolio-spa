@@ -1,5 +1,6 @@
 import Image from "../../../../common/component/image/image"
 import { CartItemTypes } from "./types"
+import "./cart-item.scss"
 
 const CartItem = (props: CartItemTypes) => {
 	const { productName, srcImage, priceProduct } = props
