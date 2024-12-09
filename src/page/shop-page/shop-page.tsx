@@ -1,36 +1,35 @@
+import { useEffect, useState } from "react"
+import { useCategoriesList } from "../../hooks"
+import { ShopPageType } from "./types"
 import CardShopCategory from "./components/card-shop-category"
-import StuffCantBuy from "../../assets/images/stuff-you-cant-buy.png"
-import  Commisions from "../../assets/images/commissions.png"
 import "./shop-page.scss"
+import { LoaderDots } from "../../components/loader-solar-system"
 
-const categoryItems = [
-	{
-		title: "Stuff you can buy",
-		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/shop/stuff-you-can-buy",
-		image: StuffCantBuy
-	},
-	{
-		title: "Commisions",
-		description: "I'm selling illustrations, stickers, and shirts here – everything that I love, and hopefully, you will too!",
-		path: "/shop/commissions",
-		image: Commisions 
-	}
-] 
 
-export const ShopPage = () => {
+export const ShopPage = (props: ShopPageType) => {
+	const [categories, setCategories] = useState([])
+	const [loading, setLoading] = useState<any>()
+	const {dataCategoriesList, isLoadingCategoriesList } = useCategoriesList()
+
+	useEffect(()=> {
+		if(isLoadingCategoriesList){
+			setLoading(<LoaderDots/>)
+		}else{
+			setCategories(dataCategoriesList)
+		}
+	},[isLoadingCategoriesList, dataCategoriesList])
+
 	return(
 		<div className="klz-shop-page">
 			<div className="klz-shop-page-container">
-				{categoryItems.map((category, index) =>(
+				{ !isLoadingCategoriesList? categories?.map((category:any ) => (
 					<CardShopCategory  
-						key={index}
-						title={category.title} 
-						path={category.path} 
-						description={category.description}
-						image={category.image}
+						key={category._id}
+						category={category}
 					/>
-				))}
+				)): (
+					<>{loading}</>
+				)}
 			</div>
 		</div>
 	)

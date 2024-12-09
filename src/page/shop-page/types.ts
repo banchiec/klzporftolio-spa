@@ -1,1 +1,1 @@
-export interface ShopPageInterface {}
+export interface ShopPageType{}

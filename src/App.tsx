@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { useRoutes } from "react-router-dom";
-import './global.scss'
 import { mainRoutes } from "./config/routes";
+import './global.scss'
 
 const Noop = ({children}: React.PropsWithChildren) => {
   return<>{children}</>

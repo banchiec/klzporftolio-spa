@@ -7,7 +7,9 @@ const Layout: React.FC = ({children}: React.PropsWithChildren ) => {
 	return(
 		<div className="klz-layout">
 			<Header/>
-			<main>{children}</main>
+			<main>
+				{children}
+			</main>
 			<Outlet/>
 			<Footer/>
 		</div>

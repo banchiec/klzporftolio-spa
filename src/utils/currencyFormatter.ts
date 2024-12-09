@@ -1,7 +1,3 @@
-interface currencyType {
-	currency: any
-	value: any
-}
 export const currencyFormatter = (currency:any, value:any) =>{
 	const formatter = Intl.NumberFormat('de-DE', {
 		style: 'currency',

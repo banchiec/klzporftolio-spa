@@ -7,12 +7,13 @@ import contactme from "../../assets/images/contactme.png"
 import ContactMeModal from "../contact-me-modal"
 import { menuHeaderDesktop, menuHeaderSidebar } from "../../config/menus"
 import "./header.scss"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 const Header = (props: HeaderType) => {
 	const [visible, setVisible] = useState(false)
 	const [visibleModal, setVisibleModal] = useState(false)
+	const navigate = useNavigate()
 
 	const handleClick = () => {
 		setVisible(!visible)
@@ -23,7 +24,7 @@ const Header = (props: HeaderType) => {
 			<div className="klz-header">
 				<div className="klz-header__desktop">
 					<div className="klz-header__desktop__logo">
-						<img src={logo} alt="image__logo"/>
+					<Link to={"/"}><img src={logo} alt="image__logo"/></Link>
 					</div>
 					<div className="klz-header__desktop__menu">
 						<ul>
@@ -39,7 +40,7 @@ const Header = (props: HeaderType) => {
 					</div>
 				</div>
 				<div className="klz-header__mobile">
-					<div className="klz-header__arrow-back">
+					<div className="klz-header__arrow-back" onClick={() => navigate(-1)}>
 						<ArrowLeft/>
 					</div>
 					<div className="klz-header__hamburger-menu" onClick={handleClick}>

@@ -6,7 +6,6 @@ import './nav-bar.scss'
 export const Navbar = () =>  {
 
 	const handleClick = () => {
-		console.log("pepe")
 	}
 	const iconsMap= [
 		{

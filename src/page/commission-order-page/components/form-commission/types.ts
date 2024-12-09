@@ -1,1 +1,3 @@
-export interface FormCommissionType {}
+export interface FormCommissionType {
+	productType: {}
+}

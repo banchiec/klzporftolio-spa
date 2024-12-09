@@ -7,7 +7,11 @@ export const Select = (props: SelectTypes) => {
 	return(
 		<div className="klz-select">
 			<span>{label}</span>
-			<select onChange={(e) =>console.log(e.target.value)} className="klz-select__custom" name={name}>
+			<select 
+				onChange={(e) =>console.log(e.target.value)} 
+				className="klz-select__custom" 
+				name={name}
+			>
 				<option value="" selected></option>
 				<option value="value1">1</option>
 				<option value="value2">Value 2</option>

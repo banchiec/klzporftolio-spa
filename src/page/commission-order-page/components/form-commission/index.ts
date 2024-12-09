@@ -1,3 +1,3 @@
-import { FormCommission } from "./form-commission";
+import  FormCommission  from "./form-commission";
 
 export default FormCommission
