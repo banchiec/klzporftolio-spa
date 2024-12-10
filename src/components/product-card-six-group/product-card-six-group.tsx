@@ -3,7 +3,10 @@ import { ProductCard } from "../product-card-group/components"
 import "./product-card-six-group.scss"
 
 export const ProductCardSixGroup = (props: any ) => {
-	const { title, products} = props
+	const { title, products} = props 
+
+
+
 	return(
 		<div className="klz-portfolio-product-card-six-group">
 			<div className="klz-portfolio-product-card-six-group__title">

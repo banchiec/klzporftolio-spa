@@ -1,7 +1,7 @@
 import { useQuery } from "react-query"
 import { fetchProductsList } from "../../api/products/list/fetchProduct"
 
-export const useProductsList = () =>{
+export const usePoductsList = () =>{
 	const product = useQuery({
 		queryKey: ['products'],
 		queryFn: fetchProductsList 

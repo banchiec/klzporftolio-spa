@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import { FormCommissionType } from "./types"
 import { 
 	COMMISSIONS_DEFAULT_VALUES, 
@@ -13,6 +13,7 @@ import { FORM_COMMISSIONS } from "../../constants"
 import SelectColor from "../../../../components/select-color/select-color"
 import { useCategoriesList, useProductsCreate } from "../../../../hooks"
 import "../../commissions-order-page.scss"
+import { CartContext } from "../../../../context/cartContext"
 
 
 
@@ -25,7 +26,14 @@ const FormCommission = (props: FormCommissionType) => {
 	const [deliveryFormat, setDeliveryFormat] = useState(DEFAULT_COMMISSIONS_SELECT_VALUE)
 	const [revisions, setRevisions] = useState(DEFAULT_COMMISSIONS_SELECT_VALUE)
 	const [description, setDescription] = useState("")
-	const [colors, setColors] = useState([])
+	const [colors, setColors] = useState([])   
+	
+	const context = useContext(CartContext);
+		if (!context) {
+ 		  throw new Error("CartContext must be used within a CartProvider");
+    } 
+
+	const {addToCart} = context;
 
 	const deliveryDaysRef = useRef()
 	const deliveryFormatRef = useRef()
@@ -53,7 +61,9 @@ const FormCommission = (props: FormCommissionType) => {
 				price: revisions.price
 			}
 		}
-	}
+	}  
+
+
 
 	useEffect(() => {
 		const price = 50 + deliveryDays.price + revisions.price + deliveryFormat.price

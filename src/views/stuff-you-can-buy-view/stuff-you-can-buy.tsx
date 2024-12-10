@@ -17,7 +17,8 @@ const StuffYouCanBuyView = () => {
 	const productTypeName = getNameForUrlProductType(locationImage)
 	const path = getPathImageForProductTypeName(productsType, productTypeName)
 	const productTypeByName = getProductTypeByName(productsType, productTypeName)
-	const {data: dataImage, isLoading: isLoadingImage } = useSingleUpload(path)
+	const {data: dataImage, isLoading: isLoadingImage } = useSingleUpload(path) 
+   
 
 	useEffect(() => {
 		if(isLoading){
