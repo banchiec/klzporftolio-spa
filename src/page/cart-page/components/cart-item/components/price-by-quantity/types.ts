@@ -1,1 +1,3 @@
-export interface PriceByQuantityTypes {}
+export interface PriceByQuantityTypes {
+	price: number
+}

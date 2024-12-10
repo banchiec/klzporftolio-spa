@@ -1,21 +1,35 @@
+import { useState } from "react"
 import { DeleteItem } from "../../../../../../assets/icons"
+import { PriceByQuantityTypes } from "./types"
+import "./price-by-quantity.scss"
 
-const PriceByQuantity = (props: any) => {
-	const {price} = props
-	return(
-		<div className="cart-item_group-bottom">
-			<div>
-				<span className="cart-item_less">
-				-
-				</span>
-    		<span className="cart-item_quantity">{1}</span>
-				<span className="cart-item_more">
-				+
-				</span>
-					<DeleteItem/>
+const PriceByQuantity = (props: PriceByQuantityTypes ) => {
+	const { price } = props
+	const [ subTotal, setSubTotal ] = useState(price)
+	const [ quantity, setQuantity ] = useState(0)
+
+	const handleQuantityLess = () => {
+		if(quantity > 0) setQuantity(quantity - 1)
+		setSubTotal(subTotal*quantity)
+	}
+
+	const handleQuantityMore = () => {
+		setQuantity(quantity + 1)
+	}
+
+	return (
+		<div className="klz-price-by-quantity">
+			<div className="klz-price-by-quantity__container">
+				<span className="klz-price-by-quantity_less" onClick={() => handleQuantityLess()}>-</span>
+    		<p className="klz-price-by-quantity__quantity">{quantity}</p>
+				<span className="klz-price-by-quantity_more" onClick={() => handleQuantityMore()} >+</span>
+				<DeleteItem/>
 			</div> 
-				<p className="cart-item_total">{232}€</p>
+			<div className="klz-price-by-quantity__subtotal">
+				<p>{subTotal}€</p>
+			</div>
 		</div>
 	)
 }
+
 export default PriceByQuantity

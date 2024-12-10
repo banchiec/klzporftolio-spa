@@ -1,140 +1,107 @@
 .cart-item {
-	color: white;
+	width: 100%;
 	display: flex;
-	border: 0.89px solid #ffffff;
 	flex-direction: column;
 	font-size: 1.8rem;
+	border: 0.89px solid #ffffff;
+	color: white;
 	font-weight: 700;
 
 	&_container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 		border-bottom: 2px solid white;
+	}
+
+	&__details {
 		display: flex;
-		align-items: center;
-		padding-left: 5px;
-		padding: 10px;
+		flex-direction: row;
 		width: 100%;
-		justify-content: space-between;
-	}
-
-	img {
-		max-width: 100%; /* Ensure the image width doesn't exceed the container */
-		max-height: 100px; /* Limit the height to avoid oversized images */
-		width: auto; /* Maintain aspect ratio */
-		height: auto; /* Maintain aspect ratio */
-		object-fit: contain; /* Ensures the image is fully visible */
-		display: block; /* Removes any inline spacing around the image */
-	}
-
-	&_name {
-		font-size: 1.5rem;
-		font-family: 'Shadows Into Light';
-		font-weight: 400;
-		padding-left: 20px;
-	}
-
-	&__delete-item {
-		width: 16px;
-	}
-
-	&_price {
-		font-size: 1.5rem;
-		font-family: 'Nunito Sans';
-	}
-
-	&_total {
-		font-size: 1.5rem;
-		font-family: 'Nunito Sans';
-	}
-
-	&_group-top {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		justify-content: space-between;
-		div {
-			display: flex;
-			align-items: center;
+		padding: 2rem;
+		gap: 1rem;
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+			display: block;
 		}
 	}
-	&_group-bottom {
+
+	&__data {
+		width: 100%;
+		padding: 0rem 0.5rem;
 		display: flex;
-		justify-content: space-between;
-		padding-left: 2rem;
-		padding-right: 1.5rem;
-		gap: 19rem;
+		flex-direction: column;
 		align-items: center;
-		padding-left: 1.7rem;
-		div {
+		justify-content: space-between;
+		gap: 1rem;
+		&__description {
 			display: flex;
-			font-size: 1.5rem;
-			gap: 5px;
-			align-items: center;
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
 		}
-		span {
+		&__name {
+			color: #fff;
+			-webkit-text-stroke-width: 0.4444444477558136;
+			-webkit-text-stroke-color: #fff;
+			font-family: 'Shadows Into Light';
+			font-size: 16.5px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 110%;
+			letter-spacing: 3.556px;
+		}
+		&__price {
+			color: #fff;
 			font-family: 'Nunito Sans';
+			font-size: 16.5px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			letter-spacing: 1.511px;
 		}
 	}
 
-	@media (min-width: 1000px) {
-		.cart-item {
-			&_name {
-				font-size: 3.556rem;
+	@media (min-width: 860px) {
+		&__details {
+			&__image {
+				width: 15.4%;
+				div {
+					width: 15.4%;
+				}
+				img {
+					width: 100%;
+				}
 			}
-			&_total {
-				font-size: 3rem;
+		}
+		&__data {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			flex-direction: row;
+			gap: 8rem;
+			&__name {
+				font-size: 3.522rem;
 			}
-			&_price {
-				font-size: 3rem;
-				padding-right: 7rem;
+			&__price {
+				font-size: 3.522rem;
 			}
-			&_quantity {
-				font-size: 2.2rem;
+			.klz-price-by-quantity {
+				gap: 8rem;
 			}
-			&_more {
-				padding-right: 1.7rem;
+			span,
+			p {
+				font-size: 3.522rem;
+			}
+			.klz-price-by-quantity {
+				width: auto;
 			}
 		}
 	}
-
-	@media (max-width: 1000px) {
-		.cart-item_group-bottom {
-			gap: 3rem;
-		}
-		.cart-item {
-			&_price {
-				padding-right: 70px;
-				font-size: 2rem;
-			}
-			&_name {
-				font-size: 2rem;
-			}
-			&_less,
-			&_more,
-			&_total,
-			&_quantity {
-				font-size: 2rem;
-			}
-		}
-	}
-
-	@media (max-width: 700px) {
-		.cart-item {
-			&_name,
-			&_price,
-			&_total,
-			&_quantity {
-				font-size: 1.4rem;
-			}
-			&_price {
-				padding-right: 10px;
-			}
-		}
-		.cart-item__delete-item {
-			width: 12px;
-		}
-
-		.cart-item_group-bottom {
-			gap: 10px;
-		}
+	@media (min-width: 1319px) {
+		width: auto;
 	}
 }
