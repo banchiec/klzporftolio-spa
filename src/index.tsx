@@ -18,10 +18,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Router> 
+     <CartProvider>       
     <QueryClientProvider client={queryClient}>     
-    <CartProvider>                 
       <App />
-      </CartProvider>
     </QueryClientProvider>
+    </CartProvider>
   </Router>
 );

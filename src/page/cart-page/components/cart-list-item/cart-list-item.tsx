@@ -1,36 +1,28 @@
-import { useState } from "react";
-import { ProductType } from "../../../../types";
 import { For } from "../../../../common/control";
 import CartItem from "../cart-item/cart-item";
+import { useContext } from "react";
+import { CartContext } from "../../../../context/cartContext";
+import { CartItemType } from "../../../../context/types";
 
-const products = [{
-    image: "cart-item.jpeg", // Mock item image URL
-    name: "MARS 23",
-    price: 20.0, // Price per unit
-    quantity: 1, // Quantity of the item
-    total: 20.0, // Total price (price * quantity)
-  },
-  {
-    image: "cart-item.jpeg", // Mock item image URL
-    name: "MARS 240",
-    price: 30.0, // Price per unit
-    quantity: 1, // Quantity of the item
-    total: 30.0, // Total price (price * quantity)
-  },
-];
 export const CartListItem = () => {
-  const renderProduct = (product: ProductType) => {
-    return(
+  const context = useContext(CartContext)!;
+
+  const { cartItems } = context;
+
+  const renderProduct = (product: CartItemType) => {
+    return (
       <CartItem
-        productName={product.name}
-        srcImage={product.image}
-        priceProduct={product.price}
+        id={product.id}
+        image={product.image}
+        name={product?.name}
+        price={product.price}
+        quantity={product.quantity}
       />
-    )
-  }
+    );
+  };
   return (
-    <div className="cart-item">   
-      <For each={products} render={renderProduct}/>
+    <div className="cart-item">
+      <For each={cartItems} render={renderProduct} />
     </div>
-  )
-}
+  );
+};
