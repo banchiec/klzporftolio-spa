@@ -4,9 +4,8 @@ import useSingleUpload from "../../hooks/upload"
 import { useEffect, useState } from "react"
 import { getNameForUrlProductType, getPathImageForProductTypeName, getProductTypeByName } from "./utils"
 import { LoaderDots } from "../../components/loader-solar-system"
-import FormCommission from "../../page/commission-order-page/components/form-commission"
-import "./commissions-create-view.scss"
 import CommissionsOrder from "./components/commissions-order/commissions-order"
+import "./commissions-create-view.scss"
 
 export const CommissionsCreateView = () => {
 	const location = useLocation()
@@ -28,7 +27,6 @@ export const CommissionsCreateView = () => {
 		}
 	},[isLoading, data, productTypeName])
 
-	console.log("object");
 	useEffect(() => {
 		if(!isLoadingImage){
 			setImagePath(dataImage)
@@ -37,7 +35,11 @@ export const CommissionsCreateView = () => {
 
 	return(
 		<div className="klz-commissions-create-view">
-			<CommissionsOrder image={imagePath!} productTypeName={productTypeName} productTypeByName={productTypeByName}/>
+			<CommissionsOrder 
+				image={imagePath!} 
+				productTypeName={productTypeName} 
+				productTypeByName={productTypeByName}
+			/>
 		</div>
 	)
 

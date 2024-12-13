@@ -2,9 +2,11 @@ import FormCommission from "../../../../page/commission-order-page/components/fo
 import { COMMISSIONS_ORDER } from "../../constants"
 import { CommissionsOrderTypes } from "./types"
 import Image from "../../../../common/component/image/image"
+import "./commissions-order.scss"
 
 const CommissionsOrder = (props: CommissionsOrderTypes) => {
 	const { image, productTypeName, productTypeByName } = props
+
 	return(
 		<div className="klz-commissions-order">
 			<div className="klz-commissions-order__container">
@@ -24,7 +26,7 @@ const CommissionsOrder = (props: CommissionsOrderTypes) => {
 						<p><span>from</span>50€</p>
 					</div>
 					<div className="klz-commissions-order__form__body">
-						<p>I create unique, handmade retro-futuristic logos, typography, and artworks in a cartoon style. Based on your description, I bring your ideas to life. Feel free to ask questions or place an order if you think your concept aligns with my style!</p>
+						<p></p>
 					</div>
 					<FormCommission productType={productTypeByName}/>
 				</div>
