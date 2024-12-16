@@ -1,9 +1,16 @@
 export interface CartItemType {
-  id: string;
-  name: string;
+  id: string | undefined;
   price: number;
+  productType: string;
+  productName: string;
+  description?: string;
+  colors?: any[];
   quantity: number;
   image: string;
+  deliveryDays?: {
+    days: number;
+    price: number;
+  };
 }
 
 export interface CartContextValue {

@@ -14,34 +14,37 @@ import SelectColor from "../../../../components/select-color/select-color";
 import { useCategoriesList, useProductsCreate } from "../../../../hooks";
 import "../../commissions-order-page.scss";
 import { CartContext } from "../../../../context/cartContext";
-import { Link, useLocation } from "react-router-dom";
-import {
-  getNameForUrlProductType,
-  getProductTypeByName,
-} from "../../../../views/commission-create-view/utils";
-import { CartItemType } from "../../../../context/types";
-import { v4 as uuidv4 } from "uuid";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+type ErrorsType = {
+  errorMessage?: string;
+};
 
 const FormCommission = (props: FormCommissionType) => {
-  const { productType } = props;
+  const { productType, image, id } = props;
+
+  const navigate = useNavigate();
+
   const [priceCommission, setPriceCommission] = useState(50);
   const { createProduct } = useProductsCreate();
-  const [productsType, setProductsType] = useState([]);
+
+  const [error, setErrors] = useState<ErrorsType>();
+
   const location = useLocation();
   const { dataCategoriesList, isLoadingCategoriesList } = useCategoriesList();
   const locationImage = location.pathname.split("/")[3];
   const [deliveryDays, setDeliveryDays] = useState(
     DEFAULT_COMMISSIONS_SELECT_VALUE
   );
+  const [productName, setproductName] = useState("");
   const [deliveryFormat, setDeliveryFormat] = useState(
     DEFAULT_COMMISSIONS_SELECT_VALUE
   );
-  const productTypeName = getNameForUrlProductType(locationImage);
-  const productTypeByName = getProductTypeByName(productsType, productTypeName);
+
+  console.log(deliveryFormat.label.length, "delivery format");
 
   const [revisions, setRevisions] = useState(DEFAULT_COMMISSIONS_SELECT_VALUE);
   const [description, setDescription] = useState("");
-  const [imagePath, setImagePath] = useState();
   const [colors, setColors] = useState([]);
 
   const deliveryDaysRef = useRef();
@@ -52,31 +55,31 @@ const FormCommission = (props: FormCommissionType) => {
     setDescription(e.target.value);
   };
 
-  const context = useContext(CartContext);
-
-  if (!context) {
-    throw new Error("CartContext must be used within a CartProvider");
-  }
+  const context = useContext(CartContext)!;
 
   const { addToCart } = context;
 
-  const handleClick = () => {
-    const item: CartItemType = {
-      id: uuidv4(),
-      name: productTypeByName?.name,
-      quantity: 1,
-      image: locationImage,
-      price: 50 + deliveryDays.price + revisions.price + deliveryFormat.price,
-    };
-    addToCart(item);
-  };
+  // const handleClick = () => {
+  //   const item: CartItemType = {
+  //     id: id,
+  //     name: productType?.name,
+  //     quantity: 1,
+  //     image: image!,
+  //     price: 50 + deliveryDays.price + revisions.price + deliveryFormat.price,
+  //   };
+  //   addToCart(item);
+  // };
 
   const onSubmit = (e: any) => {
     e.preventDefault();
     const currentColors = colors?.map((color: any) => color?.label);
 
     const newCommissions = {
-      name: "First element commission",
+      id: id,
+      quantity: 1,
+      image: image!,
+      productType: productType?.name,
+      productName: productName,
       description: description,
       deliveryDays: {
         days: deliveryDays.value,
@@ -89,6 +92,52 @@ const FormCommission = (props: FormCommissionType) => {
         price: revisions.price,
       },
     };
+
+    console.log(currentColors.length);
+
+    if (newCommissions.productName.length <= 1) {
+      setErrors({
+        errorMessage: "Product name is required. Please provide a product name",
+      });
+      return;
+    }
+
+    if (newCommissions.deliveryDays.days <= 1) {
+      setErrors({
+        errorMessage:
+          "Delivery days are required. Please provide delivery days",
+      });
+      return;
+    }
+
+    if (newCommissions.description.length <= 5) {
+      setErrors({
+        errorMessage: "Description is required. Provide description please",
+      });
+      return;
+    }
+    if (newCommissions.reviews.days <= 1) {
+      setErrors({
+        errorMessage: "Provide revisions please",
+      });
+      return;
+    }
+    if (currentColors.length == 0) {
+      setErrors({
+        errorMessage: "Please provide a color for product",
+      });
+      return;
+    }
+
+    if (deliveryFormat.label.length == 0) {
+      setErrors({
+        errorMessage: "Please provide a delivery format for product",
+      });
+      return;
+    }
+
+    addToCart(newCommissions);
+    navigate("/cart");
   };
 
   useEffect(() => {
@@ -99,6 +148,20 @@ const FormCommission = (props: FormCommissionType) => {
 
   return (
     <div className="klz-commissions-order__form-body">
+      <div className="klz-commissions-order__form-body__input">
+        <label htmlFor="productName">Product Name</label>
+        <p className="klz-commissions-order__form-body__error-msg">
+          {error?.errorMessage}
+        </p>
+        <input
+          type="text"
+          id="productName"
+          value={productName}
+          onChange={(e) => setproductName(e.target.value)}
+          placeholder="Enter product Name"
+          required
+        />
+      </div>
       <form onSubmit={onSubmit}>
         <CustomSelect
           name={COMMISSIONS_INPUTS_DEFAULT_NAMES.deliveryDays}
@@ -143,14 +206,13 @@ const FormCommission = (props: FormCommissionType) => {
         />
 
         <button
-          onClick={handleClick}
+          // onClick={handleClick}
+          onClick={onSubmit}
           className="klz-commissions-order__form-body__button"
         >
-          <Link to={"/cart"}>
-            <span className="klz-commissions-order__form-body__button-add-to-cart">
-              {FORM_COMMISSIONS.addToCart}
-            </span>
-          </Link>
+          <span className="klz-commissions-order__form-body__button-add-to-cart">
+            {FORM_COMMISSIONS.addToCart}
+          </span>
           <div className="klz-commissions-order__form-body__button-description">
             <span className="klz-commissions-order__form-body__button-description__subtotal">
               {FORM_COMMISSIONS.subtotal}

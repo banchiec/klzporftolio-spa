@@ -13,8 +13,9 @@ export const CartListItem = () => {
     return (
       <CartItem
         id={product.id}
+        productName={product.productName}
+        productType={product.productType}
         image={product.image}
-        name={product?.name}
         price={product.price}
         quantity={product.quantity}
       />

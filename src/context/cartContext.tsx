@@ -14,12 +14,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   });
 
   const addToCart = (item: CartItemType) => {
-    const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
+    const isItemInCart = cartItems.find(
+      (cartItem) => cartItem.productName === item.productName
+    );
 
     if (isItemInCart) {
       setCartItems(
         cartItems.map((cartItem) =>
-          cartItem.id === item.id
+          cartItem.productName === item.productName
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         )
@@ -33,7 +35,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (isItemInCart?.quantity === 1) {
-      setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+      setCartItems(
+        cartItems.filter(
+          (cartItem) => cartItem.productName !== item.productName
+        )
+      );
     } else {
       setCartItems(
         cartItems.map((cartItem) =>
@@ -47,7 +53,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const removeFromCart = (item: CartItemType) => {
     return setCartItems(
-      cartItems.filter((cartItem) => cartItem.id !== item.id)
+      cartItems.filter((cartItem) => cartItem.productName !== item.productName)
     );
   };
 
