@@ -42,4 +42,4 @@ export interface DeliveryDaysType {
 export interface DeliveryFormatType {
   format: "png" | "jpg" | "jpeg";
   price: number;
-}
+}  

@@ -1,3 +1,7 @@
 export interface FormCommissionType {
-	productType: {}
+  productType: {
+    name: string;
+  };
+  image?: string;
+  id?: string | undefined;
 }
