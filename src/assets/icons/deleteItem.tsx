@@ -1,6 +1,6 @@
-import deleteItem from "../types";
+import deleteItemTypes from "../types";
 
-const DeleteItem = (props: deleteItem) => {
+const DeleteItem = (props: deleteItemTypes) => {
   const { removeItemFromCart } = props;
   return (
     <svg

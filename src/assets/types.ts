@@ -1,3 +1,3 @@
-export default interface deleteItem {
+export default interface deleteItemTypes {
   removeItemFromCart: () => void;
 }
