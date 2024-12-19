@@ -1,107 +1,114 @@
 .cart-item {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	font-size: 1.8rem;
-	border: 0.89px solid #ffffff;
-	color: white;
-	font-weight: 700;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  border: 0.89px solid #ffffff;
+  color: white;
+  font-weight: 700;
 
-	&_container {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		border-bottom: 2px solid white;
-	}
+  &_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px solid white;
+  }
 
-	&__details {
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		padding: 2rem;
-		gap: 1rem;
-		img {
-			width: 100%;
-			height: auto;
-			object-fit: contain;
-			display: block;
-		}
-	}
+  &__details {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2rem;
+    gap: 1rem;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+  }
 
-	&__data {
-		width: 100%;
-		padding: 0rem 0.5rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		&__description {
-			display: flex;
-			width: 100%;
-			flex-direction: row;
-			justify-content: space-between;
-		}
-		&__name {
-			color: #fff;
-			-webkit-text-stroke-width: 0.4444444477558136;
-			-webkit-text-stroke-color: #fff;
-			font-family: 'Shadows Into Light';
-			font-size: 16.5px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 110%;
-			letter-spacing: 3.556px;
-		}
-		&__price {
-			color: #fff;
-			font-family: 'Nunito Sans';
-			font-size: 16.5px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: normal;
-			letter-spacing: 1.511px;
-		}
-	}
+  &__data {
+    width: 100%;
+    padding: 0rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    &__description {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__type {
+      color: #fff;
+      -webkit-text-stroke-width: 0.4444444477558136;
+      -webkit-text-stroke-color: #fff;
+      font-family: "Shadows Into Light";
+      font-size: 1.65rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 110%;
+      letter-spacing: 3.556px;
+    }
+    &__name {
+      color: #fff;
+      -webkit-text-stroke-width: 0.4444444477558136;
+      -webkit-text-stroke-color: #fff;
+      font-family: "Shadows Into Light";
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 110%;
+      letter-spacing: 3.556px;
+    }
+    &__price {
+      color: #fff;
+      font-family: "Nunito Sans";
+      font-size: 16.5px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 1.511px;
+    }
+  }
 
-	@media (min-width: 860px) {
-		&__details {
-			&__image {
-				width: 15.4%;
-				div {
-					width: 15.4%;
-				}
-				img {
-					width: 100%;
-				}
-			}
-		}
-		&__data {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-			flex-direction: row;
-			gap: 8rem;
-			&__name {
-				font-size: 3.522rem;
-			}
-			&__price {
-				font-size: 3.522rem;
-			}
-			.klz-price-by-quantity {
-				gap: 8rem;
-			}
-			span,
-			p {
-				font-size: 3.522rem;
-			}
-			.klz-price-by-quantity {
-				width: auto;
-			}
-		}
-	}
-	@media (min-width: 1319px) {
-		width: auto;
-	}
+  @media (min-width: 860px) {
+    &__details {
+      &__image {
+        width: 15.4%;
+        div {
+          width: 15.4%;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+    &__data {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 8rem;
+
+      &__price {
+        font-size: 3.522rem;
+      }
+      .klz-price-by-quantity {
+        gap: 8rem;
+      }
+      span,
+      p {
+        font-size: 3.522rem;
+      }
+    }
+  }
+  @media (min-width: 1319px) {
+    width: auto;
+  }
 }

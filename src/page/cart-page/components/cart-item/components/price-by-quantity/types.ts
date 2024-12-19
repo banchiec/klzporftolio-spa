@@ -1,3 +1,7 @@
 export interface PriceByQuantityTypes {
-	price: number
+  price: number;
+  quantity: number;
+  addToCart: () => void;
+  decreaseItem: () => void;
+  removeItemFromCart: () => void;
 }
